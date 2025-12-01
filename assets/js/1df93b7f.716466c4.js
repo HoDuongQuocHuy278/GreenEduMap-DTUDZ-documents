@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkgreenedumap_docs=self.webpackChunkgreenedumap_docs||[]).push([[583],{6866:(e,u,n)=>{n.r(u),n.d(u,{default:()=>t});var c=n(6025),r=n(6540),s=n(6347);function t(){const e=(0,s.W6)(),u=(0,c.A)("/");return(0,r.useEffect)(()=>{e.replace(u+"intro")},[e,u]),null}}}]);
