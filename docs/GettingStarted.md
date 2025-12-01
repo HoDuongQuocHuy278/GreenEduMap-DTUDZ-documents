@@ -1,126 +1,80 @@
-# Tổng quan về CityResQ360
+# 📝 Tổng quan về GreenEduMap
 
-![Banner](../static/img/Banner.png)
+![Banner](../static/img/banner_greenedu.png)
 
-> _"🏙️ Smart City Platform 🤖"_
+## 🎯 Mục tiêu dự án
 
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](../LICENSE)
+**GreenEduMap** là một dự án mã nguồn mở do đội **DTU-DZ_2** đến từ **Đại học Duy Tân** phát triển để tham gia cuộc thi **Olympic Tin học Sinh viên – Khối Mã nguồn mở 2025**. Dự án thuộc lĩnh vực đô thị thông minh xanh, với mục tiêu:
 
-## 📖 Giới thiệu
+🤝 **Kết nối người dân – trường học – chính quyền** bằng bản đồ tri thức.
 
-**CityResQ360** là hệ thống web + mobile mã nguồn mở giúp người dân, chính quyền và hệ thống AI phối hợp trong việc phát hiện, phản ánh và xử lý sự cố đô thị theo thời gian thực.
+🔍 **Minh bạch hóa dữ liệu đô thị** theo từng khu vực để cộng đồng dễ tiếp cận.
 
-## 🎯 Mục tiêu
+🤖 **Tối ưu hóa quy trình ra quyết định bằng AI** giúp gợi ý hành động xanh phù hợp từng khu vực.
 
-- **Tăng tính minh bạch**: Mọi phản ánh được ghi nhận và theo dõi công khai
-- **Tối ưu hóa quy trình**: Sử dụng AI để phân loại, đánh giá mức độ và gợi ý xử lý
-- **Dữ liệu mở**: Xây dựng hệ thống dữ liệu đô thị mở theo chuẩn NGSI-LD
-- **Khuyến khích tham gia**: Hệ thống CityPoint thưởng điểm cho đóng góp hữu ích
+🎓 **Thúc đẩy giáo dục bền vững** và khuyến khích cộng đồng cùng đóng góp, mở rộng.
 
-## 💡 Tính năng chính
+Dự án tập trung hình thành một nền tảng toàn diện kết hợp AI, GIS, OpenData và dashboard thời gian thực để tạo nên hệ sinh thái đô thị minh bạch, xanh và có khả năng mở rộng cho nhiều địa phương.
 
-### 🤖 Phản ánh & nhận diện tự động
+## ✨ Modules chính
 
-- AI Vision phân tích hình ảnh
-- NLP xử lý mô tả văn bản
-- Phân loại mức độ nguy hiểm
-- Cảnh báo khẩn cấp
+### 1. 📱 Module tương tác người dân
 
-### 📡 Giám sát & quản lý realtime
+� Xem dữ liệu môi trường realtime (chất lượng không khí, nhiệt độ, cảnh báo ô nhiễm)
 
-- Bản đồ trực quan
-- Dashboard thống kê
-- Quản lý sự cố
-- Chỉ số minh bạch
+🏫 Tìm kiếm trường học xanh và khóa học bền vững (Green Skills)
 
-### 🏦 CityWallet – Hệ thống điểm thưởng
+📊 Theo dõi chất lượng sống theo từng khu vực
 
-- CityPoint token
-- Đổi quà/voucher
-- Gamification
+💡 Nhận gợi ý hành động xanh từ AI GreenBot
+
+### 2. 🤖 Module phân tích AI & Dữ liệu
+
+🧠 **AI GreenBot**: Phân tích tương quan môi trường ↔ giáo dục, phát hiện mẫu bất thường
+
+📈 Clustering khu vực (Xanh – Vàng – Đỏ) dựa trên chỉ số môi trường
+
+🔮 Dự báo xu hướng ô nhiễm và biến động mảng xanh
+
+⭐ Đánh giá và gợi ý hành động xanh tự động cho từng khu vực
+
+### 3. 🗺️ Module quản lý dữ liệu môi trường & giáo dục
+
+🌡️ Thu thập và quản lý dữ liệu môi trường (OpenAQ, OpenWeather, Sentinel)
+
+🏫 Quản lý trường học, khóa học xanh và tính toán Green Score
+
+🗺️ Bản đồ 3D realtime hiển thị dữ liệu môi trường – giáo dục theo từng phường/xã
+
+📊 Dashboard trực quan cho chính quyền và trường học
+
+### 4. 📊 Module quản trị hệ thống & OpenData
+
+📉 Dashboard tổng quan và báo cáo KPI cho cơ quan quản lý
+
+🔗 API mở theo chuẩn NGSI-LD và Linked Open Data
+
+📥 Export dữ liệu đa định dạng (JSON, CSV, GeoJSON, RDF)
+
+⚙️ Phân quyền, quản lý người dùng và giám sát hệ thống
 
 ## 🏗️ Kiến trúc hệ thống
 
-### Frontend
+Hệ thống được thiết kế theo kiến trúc Microservices, đảm bảo khả năng mở rộng và xử lý dữ liệu lớn:
 
-- React Native - Ứng dụng di động
-- Bản đồ realtime
-- Camera integration
+- **Frontend**: Next.js 15 (Web), React Native (Mobile)
+- **Backend**: Laravel (PHP), FastAPI (Python cho AI)
+- **Database**: PostgreSQL + PostGIS, MongoDB, Redis
+- **Semantic**: FiWARE Orion-LD cho NGSI-LD
+- **Infrastructure**: Docker, Kubernetes, Traefik
 
-### Backend
+Xem chi tiết tại [Kiến trúc hệ thống](Architecture.md).
 
-- Laravel Framework - API REST
-- Python FastAPI - AI Services
-- Microservices architecture
+## � Linked Open Data
 
-### Database & Storage
+GreenEduMap tuân thủ chuẩn **NGSI-LD** (ETSI GS CIM 009) để chia sẻ dữ liệu đô thị xanh theo hướng Linked Open Data.
 
-- PostgreSQL/PostGIS - Dữ liệu quan hệ và địa lý
-- MinIO/S3 - Lưu trữ media
-- OpenSearch - Tìm kiếm
-- Redis - Cache
-
-### Message Queue
-
-- Kafka - Event streaming
-- MQTT - IoT sensors
-
-### AI/ML
-
-- YOLOv8 / Detectron2 - Computer Vision
-- PhoBERT / XLM-R - NLP
-
-## 👥 Đối tượng người dùng
-
-### 👥 Người dân
-
-- Gửi phản ánh với hình ảnh và vị trí GPS
-- Theo dõi tiến trình xử lý
-- Nhận cảnh báo realtime
-- Nhận điểm thưởng CityPoint
-
-### 🏛️ Cơ quan chức năng
-
-- Quản lý và xử lý phản ánh
-- Dashboard thống kê
-- Phân công nhiệm vụ
-- Theo dõi hiệu quả
-
-### 🤝 NGO/Tình nguyện viên
-
-- Truy cập dữ liệu mở
-- Kết nối IoT sensors
-- Phân tích xu hướng
-
-### 🧑‍💼 Quản trị viên
-
-- Quản lý người dùng và phân quyền
-- Giám sát hệ thống
-- Cấu hình và tích hợp
-
-### 🧠 Nhà nghiên cứu
-
-- Dữ liệu mở cho nghiên cứu
-- API để phân tích
-- Mô hình Digital Twin
-
-## ⚙️ Yêu cầu hệ thống
-
-| Software       | Minimum Version |
-| -------------- | --------------- |
-| **Laravel**    | 12x             |
-| **Python**     | 3.10+           |
-| **Node.js**    | >=18.0.0        |
-| **PostgreSQL** | 14+             |
-| **Redis**      | 7.0+            |
-| **Kafka**      | 3.0+            |
-
-## 🔐 Bảo mật
-
-- Xác thực đa yếu tố
-- Mã hóa dữ liệu
-- API rate limiting
-- Access control
+Xem chi tiết tại [NGSI-LD Guide](api/ngsi-ld.md).
 
 ## 👥 Team Members
 
@@ -134,8 +88,8 @@
 
 ```bash
 # 1. Fork repository
-git clone https://github.com/MNM-DTU-DZ/CityResQ360-DTUDZ.git
-cd CityResQ360-DTUDZ
+git clone https://github.com/HoDuongQuocHuy278/GreenEduMap-DTUDZ-documents.git
+cd GreenEduMap-DTUDZ-documents
 
 # 2. Create feature branch
 git checkout -b feat/my-feature
@@ -149,6 +103,6 @@ git push origin feat/my-feature
 
 ## 📝 License
 
-Dự án này được phân phối dưới [GNU General Public License v3.0](https://github.com/MNM-DTU-DZ/CityResQ360-DTUDZ/blob/master/LICENSE). Xem file `LICENSE` để biết thêm chi tiết.
+Dự án này được phân phối dưới [GNU General Public License v3.0](https://github.com/HoDuongQuocHuy278/GreenEduMap-DTUDZ-documents/blob/main/LICENSE). Xem file `LICENSE` để biết thêm chi tiết.
 
-© 2025 CityResQ360 – Được phát triển với ❤️ bởi Nhóm DTU-DZ
+© 2025 GreenEduMap – Được phát triển với ❤️ bởi Nhóm DTU-DZ_2
