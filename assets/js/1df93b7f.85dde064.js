@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkcityresq360_docs=self.webpackChunkcityresq360_docs||[]).push([[583],{6866:(e,c,s)=>{s.r(c),s.d(c,{default:()=>n});var t=s(6025),r=s(6540),u=s(6347);function n(){const e=(0,u.W6)(),c=(0,t.A)("/");return(0,r.useEffect)(()=>{e.replace(c+"intro")},[e,c]),null}}}]);
