@@ -1,12 +1,13 @@
 {
-  "name": "cityresq360-docs",
+  "name": "greenedumap-docs",
   "version": "1.0.0",
-  "description": "CityResQ360 - Smart City Platform Documentation",
+  "description": "GreenEduMap - Dữ liệu mở dẫn lối đô thị xanh",
   "scripts": {
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
+    "deploy:win": "cross-env GIT_USER=HoDuongQuocHuy278 docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
@@ -27,6 +28,7 @@
     "@docusaurus/tsconfig": "3.1.1",
     "@docusaurus/types": "3.1.1",
     "@types/react": "^18.2.29",
+    "cross-env": "^10.1.0",
     "gh-pages": "^6.3.0",
     "typescript": "~5.2.2"
   },
