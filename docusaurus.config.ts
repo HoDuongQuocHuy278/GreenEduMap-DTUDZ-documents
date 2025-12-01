@@ -1,15 +1,15 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'CityResQ360',
   tagline: 'Nền tảng phản ánh, cảnh báo & giám sát đô thị thông minh',
   favicon: 'logo.png',
-  url: 'https://nguyenthai11103.github.io',
-  baseUrl: '/DTU-CityResQ360-documents/',
-  organizationName: 'NguyenThai11103',
-  projectName: 'DTU-CityResQ360-documents',
+  url: 'https://hoduongquochuy278.github.io',
+  baseUrl: '/GreenEduMap-DTUDZ-documents/',
+  organizationName: 'HoDuongQuocHuy278',
+  projectName: 'GreenEduMap-DTUDZ-documents',
   trailingSlash: true,
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -17,7 +17,7 @@ const config: Config = {
   i18n: {
     defaultLocale: 'vi',
     locales: ['vi'],
-  }, 
+  },
   presets: [
     [
       'classic',
@@ -25,7 +25,7 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           routeBasePath: '/',
-          editUrl: 'https://github.com/NguyenThai11103/DTU-CityResQ360-documents/edit/main/',
+          editUrl: 'https://github.com/HoDuongQuocHuy278/GreenEduMap-DTUDZ-documents/edit/main/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -35,7 +35,7 @@ const config: Config = {
   ],
 
   themeConfig: {
-    metadata: [{name: 'keywords', content: 'smart city, urban monitoring, AI, IoT, city management'}],
+    metadata: [{ name: 'keywords', content: 'smart city, urban monitoring, AI, IoT, city management' }],
     image: 'img/Banner.png',
     navbar: {
       title: 'CityResQ360',
@@ -55,7 +55,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://github.com/NguyenThai11103/DTU-CityResQ360-documents',
+          href: 'https://github.com/HoDuongQuocHuy278/GreenEduMap-DTUDZ-documents',
           position: 'right',
           className: 'header-github-link',
           'aria-label': 'GitHub repository',
@@ -87,11 +87,11 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/NguyenThai11103/DTU-CityResQ360-documents',
+              href: 'https://github.com/HoDuongQuocHuy278/GreenEduMap-DTUDZ-documents',
             },
             {
               label: 'Issues',
-              href: 'https://github.com/NguyenThai11103/DTU-CityResQ360-documents/issues',
+              href: 'https://github.com/HoDuongQuocHuy278/GreenEduMap-DTUDZ-documents/issues',
             },
           ],
         },
