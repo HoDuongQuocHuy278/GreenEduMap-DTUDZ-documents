@@ -1,356 +1,356 @@
-# 🌆 CityResQ360 — Nền tảng phản ánh, cảnh báo & giám sát đô thị thông minh
+# 🌿 GreenEduMap - Dữ liệu mở dẫn lối đô thị xanh
 
-![s](/static/img/Banner.png)
+<div align="center">
 
-> *"🏙️ Smart City Platform 🤖"*
+[![GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-green.svg)](LICENSE)
 
-CityResQ360 là hệ thống web + mobile mã nguồn mở giúp người dân, chính quyền và hệ thống AI phối hợp trong việc phát hiện, phản ánh và xử lý sự cố đô thị theo thời gian thực. Mục tiêu của dự án là tăng tính minh bạch, cải thiện tốc độ phản ứng của cơ quan chức năng và ứng dụng trí tuệ nhân tạo để hướng tới một thành phố vận hành tự động, an toàn và bền vững hơn.
+**🤝 [Đóng Góp](CONTRIBUTING.md)** • **📜 [Changelog](CHANGELOG.md)**
 
----
+</div>
 
-## 🧭 Giới thiệu & Ý tưởng tổng thể
+<div align="center">
 
-Trong các đô thị hiện đại, việc phát hiện sớm và xử lý nhanh các sự cố như kẹt xe, ngập úng, cháy nổ, tai nạn giao thông, rác thải hoặc vi phạm công cộng đóng vai trò quan trọng. CityResQ360 ra đời như "mắt thần đô thị 360°", nơi người dân, chính quyền và AI cùng giám sát, phản hồi và cảnh báo các vấn đề đô thị theo thời gian thực.
+[![DEMO](https://img.shields.io/badge/🚀_DEMO-GREENEDUMAP-green?style=for-the-badge&logo=rocket&logoColor=white&labelColor=4a5568&color=22c55e)](https://github.com/MNM-DTU-DZ2/GreenEduMap-DTUDZ) [![DOCS](https://img.shields.io/badge/📚_DOCS-GREENEDUMAP-blue?style=for-the-badge&logo=book&logoColor=white&labelColor=4a5568&color=3b82f6)](docs/index.md)
 
-Vấn đề thực tế:
+</div>
 
-- Phản ánh từ người dân còn chậm và rời rạc.
-- Cơ quan quản lý thiếu thông tin tức thời để ra quyết định.
-- Dữ liệu đô thị chưa được liên kết và khai thác hiệu quả.
-- Hệ thống cảnh báo còn thủ công, thiếu khả năng dự đoán.
+![Banner](assets/images/banner_greenedu.png)
 
----
+> _"Xanh hơn mỗi ngày – Dữ liệu vì cộng đồng xanh 🌍"_
 
-## 🎯 Mục tiêu dự án
+## 📖 Tổng Quan
 
-- Tăng tính minh bạch và tương tác công dân — mọi phản ánh được ghi nhận và theo dõi công khai.
-- Tối ưu hóa quy trình phản ứng đô thị bằng AI (phân loại, đánh giá mức độ, gợi ý xử lý).
-- Xây dựng hệ thống dữ liệu đô thị mở theo chuẩn NGSI-LD.
-- Khuyến khích công dân đóng góp thông tin chính xác bằng hệ thống CityPoint.
-- Hỗ trợ nghiên cứu và phát triển giải pháp thông minh cho thành phố.
+**GreenEduMap** là một dự án mã nguồn mở do đội **DTU-DZ_2** đến từ **Đại học Duy Tân** phát triển để tham gia cuộc thi **Olympic Tin học Sinh viên – Khối Mã nguồn mở 2025**. Dự án thuộc lĩnh vực đô thị thông minh xanh, với mục tiêu :
 
----
+🤝 **Kết nối người dân – trường học – chính quyền** bằng bản đồ tri thức.
+🔍 **Minh bạch hóa dữ liệu đô thị** theo từng khu vực để cộng đồng dễ tiếp cận.
+🤖 **Tối ưu hóa quy trình ra quyết định bằng AI** giúp gợi ý hành động xanh phù hợp từng khu vực.
+🎓 **Thúc đẩy giáo dục bền vững** và khuyến khích cộng đồng cùng đóng góp, mở rộng.
 
-## 🆘 Thách thức đô thị mà dự án hướng tới
-
-- Tốc độ đô thị hóa cao → hạ tầng & giám sát không theo kịp.
-- Dữ liệu tách biệt giữa cơ quan → khó tổng hợp nhanh.
-- Người dân thiếu kênh báo cáo hiệu quả → thông tin mất mát hoặc chậm.
-- Cảnh báo và phát hiện xu hướng còn thủ công.
+Dự án tập trung hình thành một nền tảng toàn diện kết hợp AI, GIS, OpenData và dashboard thời gian thực để tạo nên hệ sinh thái đô thị minh bạch, xanh và có khả năng mở rộng cho nhiều địa phương.
 
 ---
 
-## 💡 Giải pháp CityResQ360
+## 👥 Dự án này dành cho ai?
 
-- Ứng dụng web/mobile cho người dân gửi phản ánh kèm ảnh, vị trí GPS và mô tả.
-- AI xử lý hình ảnh để phân loại và ước lượng mức khẩn cấp.
-- Dashboard trực quan cho cơ quan xử lý: bản đồ realtime, biểu đồ KPI, phân công nhiệm vụ.
-- Cơ chế thưởng CityPoint khuyến khích đóng góp hữu ích.
-- API mở (NGSI-LD) để tích hợp với hệ thống thành phố và bên thứ ba.
+![Banner](assets/images/doi_tuong_chinh.jpg)
+
+1. **Người dân** → xem chất lượng sống và nhận gợi ý hành động xanh, cung cấp thông tin môi trường .
+2. **Chính quyền** → ra quyết định dựa trên dữ liệu, sử dụng dữ liệu để quản lý đô thị hiệu quả.
+3. **Trường học** → triển khai giáo dục xanh (Green Skills), tích hợp dữ liệu vào giáo dục môi trường.
+4. **Tổ chức môi trường** → sử dụng dữ liệu cho và giám sát, xây dựng chiến dịch truyền thông dựa trên dữ liệu thật.
+5. **Nhà nghiên cứu** → truy cập dữ liệu mở chuẩn hóa để nghiên cứu và đổi mới, xây dựng mô hình AI/ML.
+---
+
+## ✨ Modules chính của GreenEduMap
+
+### 1. 📱 Module tương tác người dân
+
+🌍 Xem dữ liệu môi trường realtime (chất lượng không khí, nhiệt độ, cảnh báo ô nhiễm)
+
+🏫 Tìm kiếm trường học xanh và khóa học bền vững (Green Skills)
+
+📊 Theo dõi chất lượng sống theo từng khu vực
+
+💡 Nhận gợi ý hành động xanh từ AI GreenBot
+
+### 2. 🤖 Module phân tích AI & Dữ liệu
+
+🧠 **AI GreenBot**: Phân tích tương quan môi trường ↔ giáo dục, phát hiện mẫu bất thường
+
+📈 Clustering khu vực (Xanh – Vàng – Đỏ) dựa trên chỉ số môi trường
+
+🔮 Dự báo xu hướng ô nhiễm và biến động mảng xanh
+
+⭐ Đánh giá và gợi ý hành động xanh tự động cho từng khu vực
+
+### 3. 🗺️ Module quản lý dữ liệu môi trường & giáo dục
+
+🌡️ Thu thập và quản lý dữ liệu môi trường (OpenAQ, OpenWeather, Sentinel)
+
+🏫 Quản lý trường học, khóa học xanh và tính toán Green Score
+
+🗺️ Bản đồ 3D realtime hiển thị dữ liệu môi trường – giáo dục theo từng phường/xã
+
+📊 Dashboard trực quan cho chính quyền và trường học
+
+### 4. 📊 Module quản trị hệ thống & OpenData
+
+📉 Dashboard tổng quan và báo cáo KPI cho cơ quan quản lý
+
+🔗 API mở theo chuẩn NGSI-LD và Linked Open Data
+
+📥 Export dữ liệu đa định dạng (JSON, CSV, GeoJSON, RDF)
+
+⚙️ Phân quyền, quản lý người dùng và giám sát hệ thống
 
 ---
 
-## 🎯 Đối tượng hướng đến
+## 🧱 Kiến trúc hệ thống
 
-![s](/static/img/doituong.png)
+![Banner](assets/images/Kien_truc_he_thong_GreenEduMap.png)
 
-Hệ thống **CityResQ360** được phát triển nhằm phục vụ nhiều nhóm người dùng trong đô thị, tập trung vào việc phản ánh, giám sát và cảnh báo sự cố hạ tầng, môi trường và an toàn đô thị theo thời gian thực.
+### Thành phần và công nghệ sử dụng
 
----
-
-### 👥 1. Người dân trong khu vực bị ảnh hưởng
-
-**Mục tiêu:** Hỗ trợ người dân nhanh chóng gửi yêu cầu cứu trợ và nhận thông tin an toàn trong tình huống khẩn cấp.  
-
-**Lợi ích:**
-
-- Gửi phản ánh kèm hình ảnh, mô tả và vị trí GPS.
-- Theo dõi tiến trình xử lý phản ánh của cơ quan chức năng.
-- Nhận thông báo và cảnh báo khu vực nguy hiểm (ngập, kẹt xe, ô nhiễm...).
-- Nhận điểm thưởng CityPoint khi đóng góp thông tin hữu ích.
-
----
-
-### 🏛️ 2. Cơ quan chức năng & tổ chức cứu trợ
-
-**Mục tiêu:** Hỗ trợ các đơn vị quản lý thảm họa và cứu hộ **điều phối nguồn lực và nhân sự** hiệu quả.  
-
-**Lợi ích:**
-
-- Tiếp nhận, phân loại và xử lý phản ánh tự động theo mức độ ưu tiên.
-- Quản lý dữ liệu sự cố, bản đồ realtime và báo cáo thống kê.
-- Theo dõi chỉ số minh bạch và tốc độ phản hồi.
+| Thành phần         | Công nghệ sử dụng                                       |
+| ------------------ | ------------------------------------------------------- |
+| **Mobile App**     | React Native (iOS & Android)                            |
+| **Web**  | Next.js 15                                              |
+| **Backend Core**   | Laravel (PHP), Redis (Cache)                            |
+| **AI Services**    | FastAPI (Python) cho NLP, Computer Vision, scikit-learn |
+| **API Gateway**    | Traefik, Keycloak (Auth)                                |
+| **Message Broker** | Apache Kafka, MQTT (EMQX/Mosquitto)                     |
+| **Realtime**       | Reverb (WebSocket)                                      |
+| **Database**       | PostgreSQL + PostGIS (GeoData), OpenSearch              |
+| **Semantic**       | FiWARE Orion-LD, MongoDB                                |
 
 ---
 
-### 🤝 3. Tình nguyện viên & tổ chức phi chính phủ (NGO)
+## 🔗 Linked Open Data - NGSI-LD
 
-**Mục tiêu:** Kết nối và quản lý hoạt động của các cá nhân/tổ chức cứu trợ tự nguyện.  
+GreenEduMap tuân thủ chuẩn **NGSI-LD** (ETSI GS CIM 009) nhằm chia sẻ dữ liệu đô thị xanh theo hướng Linked Open Data và tương thích với hệ sinh thái **FiWARE Orion-LD** đang được nhiều thành phố thông minh sử dụng.
 
-**Lợi ích:**
+### Vì sao NGSI-LD cho GreenEduMap?
+- **Chuẩn quốc tế**: NGSI-LD bảo đảm dữ liệu môi trường – giáo dục tuân thủ đặc tả ETSI, dễ dàng kết nối với nền tảng Smart City khác.
+- **Interoperability**: Entity có URI chuẩn (`urn:ngsi-ld:AirQuality:...`, `urn:ngsi-ld:School:...`) nên tích hợp song song với GIS, dashboard của địa phương.
+- **Linked Data**: JSON-LD cho phép gắn ngữ nghĩa (SOSA/SSN, Smart Data Models) giúp AI phân tích quan hệ môi trường ↔ giáo dục.
+- **Open Data**: API công khai phục vụ nhà nghiên cứu, startup xây ứng dụng xanh mà không cần phụ thuộc vào nền tảng độc quyền.
 
-- Truy cập dữ liệu công khai theo chuẩn NGSI-LD.
-- Kết nối dịch vụ hoặc cảm biến IoT vào hệ thống.
-- Phân tích xu hướng và rủi ro đô thị phục vụ nghiên cứu & kinh doanh.
-- Cung cấp giải pháp mở rộng: camera, AI Vision, bản đồ số, v.v.
+### API endpoints chính
 
----
+```text
+# Liệt kê entity Linked Data
+GET    /api/ngsi-ld/v1/entities
+GET    /api/ngsi-ld/v1/entities?type=AirQuality
+GET    /api/ngsi-ld/v1/entities?type=School
 
-### 🧑‍💼 4. Quản trị viên hệ thống (Admin)
+# Chi tiết & truy vấn thời gian
+GET    /api/ngsi-ld/v1/entities/{id}
+GET    /api/ngsi-ld/v1/temporal/entities/{id}
 
-**Mục tiêu:** Quản lý toàn bộ hệ thống và người dùng, đảm bảo vận hành ổn định.  
+# Ghi/đăng ký
+POST   /api/ngsi-ld/v1/entities              (Content-Type: application/ld+json)
+PATCH  /api/ngsi-ld/v1/entities/{id}/attrs
+POST   /api/ngsi-ld/v1/subscriptions         (webhook khi AQI hoặc điểm xanh thay đổi)
+```
 
-**Lợi ích:**
+### Smart Data Models tiêu biểu
 
-- Quản lý người dùng, phân quyền theo vai trò.
-- Giám sát hoạt động của toàn hệ thống và API tích hợp.
-- Cấu hình nguồn dữ liệu, cảm biến và tích hợp bản đồ.
-- Theo dõi hiệu năng và cảnh báo sự cố kỹ thuật.
+- `AirQualityObservation` (FiWARE Smart Data Models): thuộc tính `aqi`, `pm25`, `observedAt`, `location` (GeoProperty - GeoJSON Point), `source`.
+- `School`/`GreenSchool`: thuộc tính `greenScore`, `facilities`, `courseCatalog`, `address`, `status`.
 
----
 
-### 🧠 5. Nhà nghiên cứu & nhà phát triển
-
-**Mục tiêu:** Mở rộng khả năng nghiên cứu và ứng dụng công nghệ mới trong lĩnh vực cứu hộ - cứu nạn.  
-
-**Lợi ích:**
-
-- Truy cập dữ liệu mở (Open Data) để phân tích xu hướng đô thị.
-- Nghiên cứu ứng dụng AI, NLP, Vision, IoT trong quản lý đô thị.
-- Thử nghiệm mô hình Digital Twin và dự báo rủi ro hạ tầng.
-- Đóng góp module mở rộng hoặc plugin mới cho hệ thống.
-
----
-
-## 📱 Chức năng chính
-
-![s](/static/img/chucnang.png)
-
-- AI tự động phân loại phản ánh: cháy, ngập, tai nạn, rác, tắc đường, v.v.
-- Bản đồ đô thị realtime hiển thị mức độ khẩn cấp theo khu vực.
-- Dashboard quản lý: theo dõi, phân công và cập nhật tiến độ xử lý.
-- Thống kê & báo cáo: tốc độ phản hồi, chỉ số minh bạch, hiệu quả đơn vị.
-- CityPoint token: hệ thống điểm thưởng cho người đóng góp.
-- Cảnh báo khu vực khi phát hiện nhiều phản ánh trùng lặp.
-- API mở để nhà phát triển khai thác dữ liệu.
+> 📚 Chi tiết cấu trúc NGSI-LD và context JSON-LD được mô tả trong `PROJECT_WORK.md` và các tài liệu trong thư mục `docs/`.
 
 ---
 
-## 🧠 Tính năng nổi bật
+## 🧩 Hướng Phát Triển
 
-### 🤖 Phản ánh & nhận diện tự động
+Dự án hướng tới xây dựng hệ sinh thái đô thị xanh thông minh, không chỉ dừng lại ở hiển thị dữ liệu mà còn mở rộng khả năng dự báo, tự động hóa và kết nối cộng đồng.
 
-- AI Vision & NLP phân tích hình ảnh, âm thanh, nội dung phản ánh.  
-- Phân loại mức độ nguy hiểm & cảnh báo khẩn cấp đến cơ quan liên quan.  
-- Gợi ý hướng dẫn an toàn và thông báo cộng đồng lân cận.
+### 🌐 Mở rộng & Kết nối
 
-### 📡 Giám sát & quản lý realtime
+- Triển khai đa đô thị: Mở rộng GreenEduMap cho nhiều thành phố, hỗ trợ đa ngôn ngữ
+- Bản đồ 3D thời gian thực: Hiển thị lớp dữ liệu môi trường – giáo dục – năng lượng với vùng cảnh báo.
+- Nền tảng cộng đồng xanh: Kết nối người dân – trường học – doanh nghiệp thông qua dữ liệu mở và hoạt động xanh.
 
-- Bản đồ trực quan thể hiện trạng thái từng khu vực.  
-- Dashboard phân tích thống kê phản ánh theo thời gian, vị trí và loại sự cố.  
-- Chấm điểm mức độ minh bạch và tốc độ phản hồi của từng cơ quan.
+### 🧠 Nâng cấp AI & Dữ liệu
 
-### 🏦 CityWallet – Hệ thống điểm thưởng
+- Dự báo xu hướng đô thị: Phân tích dữ liệu lịch sử để dự đoán ô nhiễm không khí, nhiệt độ và biến động mảng xanh.
+- AI GreenBot nâng cao: Học từ dữ liệu người dùng đóng góp và cảm biến IoT môi trường.
+- Phân tích hình ảnh vệ tinh: Tự động nhận diện thay đổi cây xanh, bê tông hóa từ ảnh Sentinel.
 
-- Công dân được thưởng điểm **CityPoint** khi phản ánh hữu ích.  
-- Đổi quà, voucher, hoặc sử dụng trong các dịch vụ đô thị.
+### 🔗 Dữ liệu mở & Minh bạch
 
----
+- Chuẩn hóa dữ liệu mở: Áp dụng NGSI-LD, RDF/JSON-LD để chia sẻ dữ liệu môi trường và giáo dục.
+- API mở: Cho phép sinh viên, nhà nghiên cứu và startup phát triển các ứng dụng xanh trên nền tảng.
+- Quản lý chất lượng dữ liệu: Theo dõi nguồn gốc dữ liệu (data lineage) và độ tin cậy.
 
-# 🗺️ Kiến Trúc Hệ Thống (System Architecture)
+### 🌍 Tầm nhìn dài hạn
 
-Tài liệu này mô tả kiến trúc Microservices và Hướng sự kiện (Event-Driven Architecture) của hệ thống, bao gồm các công nghệ cốt lõi, dịch vụ và luồng dữ liệu chính.
-
----
-
-## ⚙️ Công Nghệ và Framework
-
-Hệ thống sử dụng đa dạng các công nghệ hiện đại, tập trung vào hiệu năng và khả năng mở rộng:
-
-| Phân Loại | Công Nghệ Cụ Thể | Vai trò |
-| :--- | :--- | :--- |
-| **Giao diện Người dùng (UI)** | **React Native** | Phát triển ứng dụng di động đa nền tảng. |
-| **Cổng API (Gateway)** | **API Gateway** (Kong/Nginx) | Bảo mật, giới hạn tốc độ (Rate Limit), xác thực JWT. |
-| **Backend/Core APIs** | **Laravel** (PHP), **Python** (FastAPI) | Phát triển dịch vụ RFI/Public API và các microservices. |
-| **Xác thực (Auth)** | **Keycloak** (SSO/ID), **JWT** | Quản lý định danh và truy cập (IDDC), xác thực người dùng. |
-| **Tin nhắn/Sự kiện** | **Kafka** (Redpanda), **MQTT Broker** (EMQX/Mosquitto) | Xử lý hàng đợi sự kiện tốc độ cao và tin nhắn từ cảm biến (Sensors). |
-| **Cơ sở dữ liệu (Database)** | **PostgreSQL/PostGIS** | Dữ liệu quan hệ và dữ liệu địa lý (Geo/PoI). |
-| **Lưu trữ đối tượng (Object Storage)** | **MinIO / S3** | Lưu trữ dữ liệu media (Media Service). |
-| **Tìm kiếm (Search)** | **OpenSearch** | Cung cấp khả năng tìm kiếm nâng cao (Search API). |
-| **Cache/Hàng đợi** | **Redis Queue/Cache** | Caching, quản lý hàng đợi cho Notifier Service và Rule Engine. |
-| **Rule Engine** | **NDx/Drools** | Xử lý logic nghiệp vụ và các quy tắc cảnh báo. |
+- Xây dựng bản sao số đô thị xanh 3D, mô phỏng môi trường – giáo dục – năng lượng, dự báo xu hướng và gợi ý giải pháp tối ưu.
+- Kết nối người dân, trường học, doanh nghiệp và chính quyền trong một hệ sinh thái dữ liệu mở.
+- Ứng dụng AI dự báo ô nhiễm, thay đổi cây xanh và năng lượng, giúp ra quyết định nhanh và bền vững.
+- Triển khai GreenEduMap tại nhiều thành phố Đông Nam Á, chuẩn hóa dữ liệu theo NGSI-LD và Linked Open Data, trở thành trung tâm dữ liệu đô thị xanh mã nguồn mở hàng đầu khu vực.
 
 ---
 
-## 🛠️ Các Dịch Vụ và Chức Năng Chính (Microservices)
+## ⚖️ Quy Tắc Ứng Xử
 
-Hệ thống được tổ chức thành các dịch vụ độc lập (Microservices), giao tiếp chủ yếu qua HTTP (REST) và Kafka/MQTT.
-
-### 1. Dịch vụ Cốt lõi
-
-* **RFI/Public API:** Điểm truy cập chính cho các giao diện người dùng. Xử lý logic tổng hợp dữ liệu (Aggregation) và caching (Vũ Cache).
-
-* **Media Service:** Quản lý và lưu trữ tệp tin đa phương tiện vào **MinIO / S3**.
-
-* **Wallet Service:** Xử lý các chức năng liên quan đến ví điện tử/thanh toán.
-
-* **Search API:** Cung cấp giao diện tìm kiếm dữ liệu thông qua **OpenSearch**.
-
-### 2. Dịch vụ IoT và Phân tích Dữ liệu
-
-* **IoT Adapter:** Nhận tin nhắn từ **MQTT Broker** (Sensors), xử lý và đưa vào luồng sự kiện **Kafka**.
-
-* **NLP (Natural Language Processing):** Phân tích và xử lý ngôn ngữ tự nhiên.
-
-* **Vision (Vision Python/FastAPI):** Xử lý thị giác máy tính, tạo ra các sự kiện **`vision_alert`**.
-
-* **Geo/PoI:** Xử lý dữ liệu vị trí và điểm quan tâm (Point of Interest) sử dụng **PostGIS**.
-
-### 3. Dịch vụ Quản lý và Thông báo
-
-* **Report Service:** Tạo báo cáo, lưu trữ vào **DB Report** và **`Produce report observed`** event.
-
-* **Rule Engine (NDx/Drools):** Tiêu thụ các sự kiện cảnh báo từ Vision và Report, áp dụng luật nghiệp vụ để **`Produce alert triggered`**.
-
-* **Incident Service:** Xử lý và quản lý vòng đời của các sự cố, lưu trữ vào **DB Incident**.
-
-* **Notifier Service:** Nhận sự kiện **`alert triggered`** và phân phối thông báo (sử dụng **Redis Queue/Cache**) tới ứng dụng (React Native App) và các nền tảng khác (Laravel Webhook).
+Dự án này tuân theo bộ quy tắc ứng xử cho cộng đồng. Xem file [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) để biết thêm chi tiết về các quy tắc và hành vi được chấp nhận.
 
 ---
 
-## ➡️ Luồng Dữ liệu Chính
+## 🚀 Cài Đặt Hệ Thống
 
-1.  **Truy cập Ứng dụng:** **React Native App** gửi yêu cầu qua **HTTPS + JWT** đến **API Gateway**.
+### Yêu cầu hệ thống
+- **Node.js** 18+ (Next.js web)
+- **Python** 3.9+ (FastAPI services)
+- **PHP** 8.2+ (Laravel backend)
+- **PostgreSQL** 14+ + PostGIS extension
+- **Docker & Docker Compose** (for containerized deployment)
+- **Redis** 7+
 
-2.  **Dữ liệu Cảm biến:** **Sensors** -> **MQTT Broker** -> **IoT Adapter** -> **Kafka**.
+### Cài đặt nhanh (Local Development)
 
-3.  **Luồng Cảnh báo/Sự cố:**
+```bash
+# Clone repository
+git clone https://github.com/MNM-DTU-DZ2/GreenEduMap-DTUDZ.git
+cd GreenEduMap-DTUDZ
 
-    * **Vision Service** (hoặc **Report Service**) tạo **`vision/report alert`**.
+# Setup environment
+cp .env.example .env
+cp .env.local.example .env.local
 
-    * **Kafka** truyền tải các sự kiện này.
+# Docker Compose (recommended)
+docker-compose -f infrastructure/docker/docker-compose.yml up -d
 
-    * **Rule Engine** tiêu thụ, áp dụng luật, và tạo **`alert triggered`**.
+# Web App Setup
+cd modules/web-app
+npm install
+npm run dev  # Runs on http://localhost:3000
 
-    * **Notifier Service** nhận **`alert triggered`** để **broadcast data** tới **React Native App** (qua HTTP/Websocket) và **Laravel Webhook**.
+# Backend Setup (if running locally)
+cd backend
+pip install -r requirements.txt
+uvicorn main:app --reload
 
-4.  **Dữ liệu Báo cáo:** **Report Service** lưu dữ liệu vào **DB Report** và tạo sự kiện cho **Rule Engine**.
+# Seed database
+cd modules/web-app
+npx prisma migrate dev
+npx prisma db seed
+```
 
-5.  **Quản lý Sự cố:** **Incident Service** nhận thông tin liên quan và lưu vào **DB Incident**.
+### Verify Installation
+```bash
+# Check all services are running
+curl http://localhost:3000          # Web app
+curl http://localhost:8000          # API Gateway
+curl http://localhost:5432          # PostgreSQL
+curl http://localhost:6379          # Redis
+```
 
----
-
-## 🔬 AI & dữ liệu
-
-- Vision: YOLOv8 / Detectron2 cho phát hiện đối tượng/sự cố từ ảnh.  
-- NLP: PhoBERT / XLM-R cho phân loại mô tả tiếng Việt và trích xuất thực thể.  
-- Fusion Layer: hợp nhất kết quả ảnh, văn bản và metadata để đưa ra nhãn cuối cùng và mức ưu tiên.  
-- Đánh giá: Precision, Recall, F1-score, mAP và chỉ số độ tin cậy AI.  
-- Dữ liệu lưu trữ theo chuẩn NGSI-LD để dễ tích hợp và chia sẻ.
-
----
-
-## ♻️ Quy trình hoạt động (tóm tắt)
-
-1. Người dân gửi phản ánh (ảnh, mô tả, vị trí).  
-2. Hệ thống lưu ảnh và đẩy message vào hàng đợi.  
-3. Worker gọi AI microservice để phân tích hình ảnh & văn bản.  
-4. Kết quả được ghép với metadata, cập nhật entity (NGSI-LD) và hiển thị trên bản đồ.  
-5. Nếu cần, phát cảnh báo tới đơn vị liên quan và công dân (push/SMS/email).  
-6. Hoàn thành xử lý → cập nhật trạng thái và tính điểm CityPoint cho reporter.
-
----
-
-## 🚀 Hướng phát triển tương lai
-
-### 🌐 Mở rộng dữ liệu & cảm biến
-
-- Mở rộng quy mô đến nhiều tỉnh, thành phố và khu vực khác nhau, hướng tới phạm vi toàn quốc.
-
-- Hỗ trợ đa ngôn ngữ để dễ dàng triển khai ở các quốc gia Đông Nam Á.
-
-- Tích hợp bản đồ chi tiết thời gian thực, thể hiện các vùng chịu ảnh hưởng, điểm tập trung cứu trợ, và đường di tản an toàn.
-
-### 🧠 Phát triển năng lực AI
-
-- Phát triển mô hình dự đoán rủi ro dựa trên dữ liệu khí tượng, địa hình và lịch sử thảm họa.
-
-- Ứng dụng AI phân tích hình ảnh từ camera, UAV hoặc dữ liệu do người dân gửi lên để nhận diện cháy nổ, ngập lụt, sạt lở,…
-
-- Tích hợp chatbot AI hỗ trợ thông minh, hướng dẫn sơ tán, cảnh báo và tiếp nhận báo cáo tự động.
-
-### 💬 Tăng cường tương tác công dân
-
-| Tính năng | Mô tả |
-|------------|--------|
-| 🤖 **Chatbot AI công dân** | Hỏi – đáp trực tiếp, tra cứu trạng thái sự cố |
-| 📱 **App di động (Flutter / React Native)** | Gửi phản ánh, nhận cảnh báo realtime |
-| 🏆 **CityPoint** | Gamification khuyến khích người dân đóng góp |
-| 🗺️ **Bản đồ cộng đồng** | Thể hiện tỷ lệ xử lý & phản hồi minh bạch |
-
-### 🔒 Blockchain & Civic Token
-
-- Lưu trữ phản ánh và xác nhận xử lý bằng **smart contract**.  
-
-- Token hóa **CityPoint** làm phần thưởng minh bạch.  
-
-- Ghi log minh bạch trên **Polygon / Ethereum**.
-
-### 🌍 Quốc tế hóa & học thuật
-
-- Đa ngôn ngữ.  
-
-- Mở rộng mô hình cho các đô thị khác tại Việt Nam & khu vực.  
-
-- Phát triển mô hình **Digital Twin** đô thị mô phỏng & dự báo rủi ro.
+Xem chi tiết tại `docs/guides/setup.md`
 
 ---
 
-## 🛠 Hướng dẫn cài đặt nhanh (phát triển — Windows)
+## 📁 Cấu trúc thư mục
 
-*Hướng dẫn chi tiết sẽ được cập nhật sau.*
-
----
-
-## 🐛 Báo lỗi
-
-Nếu bạn phát hiện lỗi, vui lòng tạo issue mới với:
-- Mô tả chi tiết lỗi
-- Các bước tái hiện
-- Screenshots nếu có
-- Môi trường (browser, OS...)
-
----
-
-## 🤝 Đóng góp
-
-- Fork → tạo branch feature/{tên} → mở Pull Request mô tả thay đổi.  
-- Viết unit test cho tính năng mới; tuân thủ PSR-12 (PHP).
-- Báo lỗi bảo mật trực tiếp cho maintainer trước khi public issue.  
-- Chúng tôi rất hoan nghênh mọi đóng góp! Xem [CONTRIBUTING](https://github.com/Truongpyeo/CityResQ360-DTUDZ/blob/master/LICENSE) để biết thêm chi tiết.
+```
+GreenEduMap
+├── backend/            # FastAPI, services, AI models
+├── frontend/
+├── app/
+├── docker/             # Deployment stack
+├── data/               # SQL seeds, GeoJSON, raster
+├── docs/               # Documentation, diagrams
+├── scripts/            # ETL, LOD exports
+└── .github/workflows/  # CI/CD pipelines
+```
 
 ---
 
-## 📜 Changelog
+## 🧪 Kiểm thử
 
-Xem [CHANGELOG](https://github.com/Truongpyeo/CityResQ360-DTUDZ/blob/master/CHANGELOG.md) để biết lịch sử thay đổi.
+```bash
+cd backend
+pytest -v --cov=app
 
----
-
-## 📄 Giấy phép
-
-Dự án được phân phối dưới giấy phép [MIT License](https://github.com/Truongpyeo/CityResQ360-DTUDZ/blob/master/LICENSE)
-
----
-
-## 📞 Liên hệ
-
-- Lê Thanh Trường           :  <u>thanhtruong23111999@gmail.com</u>
-
-- Nguyễn Văn Nhân           :  <u>vannhan130504@gmail.com</u>
-
-- Nguyễn Ngọc Duy Thái      :  <u>kkdn011@gmail.com</u>
+cd frontend
+npm run test
+```
 
 ---
 
-*"Được phát triển với ❤️ bởi Nhóm DTU-DZ"*
+## 📄 Tài liệu liên quan
+
+| File                          | Mô tả                  |
+| ----------------------------- | ---------------------- |
+| `docs/architecture.md`        | Kiến trúc chi tiết     |
+| `docs/api_reference.md`       | API đầy đủ             |
+| `docs/open_data_standards.md` | NGSI-LD, SOSA/SSN, LOD |
+| `CONTRIBUTING.md`             | Quy tắc đóng góp       |
+
+---
+
+## 🤝 Đóng Góp Cho Dự Án
+
+Dự án này là mã nguồn mở, được phát triển bởi đội **DTU-DZ_2** đến từ **Đại học Duy Tân** để tham gia cuộc thi **Olympic Tin học Sinh viên – Khối Mã nguồn mở năm 2025** nên rất hoan nghênh cộng đồng tham gia đóng góp!
+
+### 🌱 Quy Trình Đóng Góp
+
+#### 1. Fork Repository
+
+```bash
+# Fork repository trên GitHub
+# Clone về máy local
+git clone https://github.com/MNM-DTU-DZ2/GreenEduMap-DTUDZ.git
+cd GreenEduMap-DTUDZ
+```
+
+#### 2. Tạo Branch Mới
+
+```bash
+# Tạo và chuyển sang branch mới
+git checkout -b feat/<new-feature>
+
+# Ví dụ
+git checkout -b feat/air-quality-api
+```
+
+#### 3. Commit Thay Đổi
+
+```bash
+# Thêm file đã thay đổi
+git add .
+
+# Commit với message rõ ràng
+git commit -m "feat: add air quality API module"
+```
+
+#### 4. Push Branch
+
+```bash
+# Push lên repository của bạn
+git push -u origin feat/<new-feature>
+```
+
+#### 5. Tạo Pull Request
+
+- Truy cập repository gốc tại GitHub
+- Chọn "New Pull Request"
+- Chọn branch của bạn để merge
+- Điền thông tin mô tả chi tiết
+
+### 📝 Issues
+
+Báo cáo lỗi và đề xuất tính năng mới tại [GitHub Issues](https://github.com/MNM-DTU-DZ2/GreenEduMap-DTUDZ/issues)
+
+Xem thêm hướng dẫn đóng góp tại [CONTRIBUTING.md](CONTRIBUTING.md)
+
+---
+
+## 👥 Người Hướng Dẫn
+
+| 👨‍🏫 Vai Trò | 📧 Thông Tin |
+| ----------- | ------------ |
+| **Giảng Viên** | **Nguyễn Quốc Long**<br>Email: quoclongdng@gmail.com |
+
+### 📞 Liên hệ Team DTU-DZ2
+
+Nếu cần trao đổi gì thêm, vui lòng liên hệ:
+
+- **Trần Xuân Trường**: xuantruong081205@gmail.com
+- **Hồ Dương Quốc Huy**: huyho2782005@gmail.com
+- **Lê Tuấn Minh**: llttminh@gmail.com
+
+---
+
+## 📜 License
+
+Dự án này được phân phối dưới [GNU General Public License v3.0](LICENSE). Xem file `LICENSE` để biết thêm chi tiết.
+
+---
+
+© 2025 **GreenEduMap** - Dữ liệu mở dẫn lối đô thị xanh 🌱  
+
