@@ -49,7 +49,7 @@ Hệ thống được xây dựng dựa trên các công nghệ hiện đại:
 | ------------------ | ------------------------------------------------------- |
 | **Mobile App**     | React Native (iOS & Android)                            |
 | **Web**            | Next.js 15                                              |
-| **Backend Core**   | Laravel (PHP), Redis (Cache)                            |
+| **Backend Core**   | Python, Redis (Cache)                                   |
 | **AI Services**    | FastAPI (Python) cho NLP, Computer Vision, scikit-learn |
 | **API Gateway**    | Traefik, Keycloak (Auth)                                |
 | **Message Broker** | Apache Kafka, MQTT (EMQX/Mosquitto)                     |

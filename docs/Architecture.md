@@ -12,7 +12,7 @@ GreenEduMap được xây dựng theo kiến trúc **Microservices** hiện đ�
 | ------------------ | ------------------------------------------------------- |
 | **Mobile App**     | React Native (iOS & Android)                            |
 | **Web**            | Next.js 15                                              |
-| **Backend Core**   | Laravel (PHP), Redis (Cache)                            |
+| **Backend Core**   | Python, Redis (Cache)                                   |
 | **AI Services**    | FastAPI (Python) cho NLP, Computer Vision, scikit-learn |
 | **API Gateway**    | Traefik, Keycloak (Auth)                                |
 | **Message Broker** | Apache Kafka, MQTT (EMQX/Mosquitto)                     |
@@ -32,7 +32,7 @@ GreenEduMap được xây dựng theo kiến trúc **Microservices** hiện đ�
 
 - **API Gateway**: Traefik routing, load balancing
 - **Authentication**: Keycloak OpenID Connect, JWT tokens
-- **Core Services**: Laravel microservices (User, School, Feedback, Analytics)
+- **Core Services**: Python microservices (User, School, Feedback, Analytics)
 - **Cache Layer**: Redis cho session, real-time data
 - **Message Queue**: Kafka cho async processing, MQTT cho IoT sensors
 

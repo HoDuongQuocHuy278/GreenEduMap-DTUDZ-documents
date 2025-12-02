@@ -22,10 +22,10 @@ Dự án này sử dụng GitHub Actions để tự động deploy website Docus
 ### 2. Kiểm tra cấu hình
 
 File `docusaurus.config.ts` đã được cấu hình với:
-- `url`: `https://nguyenthai11103.github.io`
-- `baseUrl`: `/DTU-CityResQ360-documents/`
-- `organizationName`: `NguyenThai11103`
-- `projectName`: `DTU-CityResQ360-documents`
+- `url`: `https://HoDuongQuocHuy278.github.io`
+- `baseUrl`: `/GreenEduMap-DTUDZ-documents/`
+- `organizationName`: `HoDuongQuocHuy278`
+- `projectName`: `GreenEduMap-DTUDZ-documents`
 
 ## 🚀 Deploy tự động (Khuyến nghị)
 
@@ -41,7 +41,7 @@ File `docusaurus.config.ts` đã được cấu hình với:
 2. GitHub Actions sẽ tự động:
    - Build website
    - Deploy lên branch `gh-pages`
-   - Website sẽ có sẵn tại: `https://nguyenthai11103.github.io/DTU-CityResQ360-documents/`
+   - Website sẽ có sẵn tại: `https://HoDuongQuocHuy278.github.io/GreenEduMap-DTUDZ-documents/`
 
 3. Kiểm tra workflow:
    - Vào tab **Actions** trên GitHub
@@ -56,7 +56,7 @@ Nếu muốn deploy thủ công (không khuyến nghị):
 yarn build
 
 # Deploy lên GitHub Pages
-GIT_USER=NguyenThai11103 yarn deploy
+GIT_USER=HoDuongQuocHuy278 yarn deploy
 ```
 
 **Lưu ý**: Cần có quyền push vào repository và đã cấu hình SSH key hoặc Personal Access Token.
@@ -64,7 +64,7 @@ GIT_USER=NguyenThai11103 yarn deploy
 ## 🔍 Kiểm tra sau khi deploy
 
 1. Đợi vài phút để GitHub xử lý
-2. Truy cập: `https://nguyenthai11103.github.io/DTU-CityResQ360-documents/`
+2. Truy cập: `https://HoDuongQuocHuy278.github.io/GreenEduMap-DTUDZ-documents/`
 3. Nếu chưa thấy, kiểm tra:
    - Workflow có chạy thành công không (tab Actions)
    - Branch `gh-pages` đã được tạo chưa

@@ -35,7 +35,7 @@ Quy tắc Ứng xử này áp dụng trong tất cả không gian cộng đồng
 
 ## Thực thi
 
-Các trường hợp lạm dụng, quấy rối hoặc hành vi không thể chấp nhận được có thể được báo cáo cho người lãnh đạo cộng đồng chịu trách nhiệm thực thi tại <thanhtruong23111999@gmail.com>.
+Các trường hợp lạm dụng, quấy rối hoặc hành vi không thể chấp nhận được có thể được báo cáo cho người lãnh đạo cộng đồng chịu trách nhiệm thực thi tại <huyho2782005@gmail.com>.
 Tất cả khiếu nại sẽ được xem xét và điều tra nhanh chóng và công bằng.
 Tất cả người lãnh đạo cộng đồng có nghĩa vụ tôn trọng quyền riêng tư và an ninh của người báo cáo về bất kỳ sự cố nào.
 

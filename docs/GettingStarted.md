@@ -20,7 +20,7 @@ Dự án tập trung hình thành một nền tảng toàn diện kết hợp AI
 
 ### 1. 📱 Module tương tác người dân
 
-� Xem dữ liệu môi trường realtime (chất lượng không khí, nhiệt độ, cảnh báo ô nhiễm)
+🌍 Xem dữ liệu môi trường realtime (chất lượng không khí, nhiệt độ, cảnh báo ô nhiễm)
 
 🏫 Tìm kiếm trường học xanh và khóa học bền vững (Green Skills)
 
@@ -63,14 +63,14 @@ Dự án tập trung hình thành một nền tảng toàn diện kết hợp AI
 Hệ thống được thiết kế theo kiến trúc Microservices, đảm bảo khả năng mở rộng và xử lý dữ liệu lớn:
 
 - **Frontend**: Next.js 15 (Web), React Native (Mobile)
-- **Backend**: Laravel (PHP), FastAPI (Python cho AI)
+- **Backend**: Python, FastAPI (Python cho AI)
 - **Database**: PostgreSQL + PostGIS, MongoDB, Redis
 - **Semantic**: FiWARE Orion-LD cho NGSI-LD
 - **Infrastructure**: Docker, Kubernetes, Traefik
 
 Xem chi tiết tại [Kiến trúc hệ thống](Architecture.md).
 
-## � Linked Open Data
+## 🔗 Linked Open Data
 
 GreenEduMap tuân thủ chuẩn **NGSI-LD** (ETSI GS CIM 009) để chia sẻ dữ liệu đô thị xanh theo hướng Linked Open Data.
 
@@ -80,9 +80,9 @@ Xem chi tiết tại [NGSI-LD Guide](api/ngsi-ld.md).
 
 | Role      | Name                     | Email                                                                 |
 | --------- | ------------------------ | --------------------------------------------------------------------- |
-| Developer | **Lê Thanh Trường**      | [thanhtruong23111999@gmail.com](mailto:thanhtruong23111999@gmail.com) |
-| Developer | **Nguyễn Văn Nhân**      | [vannhan130504@gmail.com](mailto:vannhan130504@gmail.com)             |
-| Developer | **Nguyễn Ngọc Duy Thái** | [kkdn011@gmail.com](mailto:kkdn011@gmail.com)                         |
+| Developer | **Lê Tuấn Minh**      | [llttminh@gmail.com](mailto:llttminh@gmail.com) |
+| Developer | **Hồ Dương Quốc Huy**      | [huyho2782005@gmail.com](mailto:huyho2782005@gmail.com)             |
+| Developer | **Trần Xuân Trường** | [xuantruong081205@gmail.com](mailto:xuantruong081205@gmail.com)                         |
 
 ## 🤝 Đóng góp
 

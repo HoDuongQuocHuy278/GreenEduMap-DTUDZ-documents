@@ -3,7 +3,7 @@ import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'CityResQ360',
+  title: 'GreenEduMap',
   tagline: 'Nền tảng phản ánh, cảnh báo & giám sát đô thị thông minh',
   favicon: 'logo.png',
   url: 'https://hoduongquochuy278.github.io',
@@ -99,21 +99,21 @@ const config: Config = {
           title: 'Team',
           items: [
             {
-              label: 'Lê Thanh Trường',
-              href: 'mailto:thanhtruong23111999@gmail.com',
+              label: 'Lê Tuấn Minh',
+              href: 'mailto:llttminh@gmail.com',
             },
             {
-              label: 'Nguyễn Văn Nhân',
-              href: 'mailto:vannhan130504@gmail.com',
+              label: 'Hồ Dương Quốc Huy',
+              href: 'mailto:huyho2782005@gmail.com',
             },
             {
-              label: 'Nguyễn Ngọc Duy Thái',
-              href: 'mailto:kkdn011@gmail.com',
+              label: 'Trần Xuân Trường',
+              href: 'mailto:xuantruong081205@gmail.com',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} CityResQ360. Built with ❤️ by DTU-DZ Team.`,
+      copyright: `Copyright © ${new Date().getFullYear()} GreenEduMap. Built with ❤️ by DTU-DZ-02 Team.`,
     },
     prism: {
       theme: prismThemes.github,
