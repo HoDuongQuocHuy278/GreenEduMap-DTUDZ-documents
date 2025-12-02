@@ -38,9 +38,9 @@ const config: Config = {
     metadata: [{ name: 'keywords', content: 'smart city, urban monitoring, AI, IoT, city management' }],
     image: 'img/Banner.png',
     navbar: {
-      title: 'CityResQ360',
+      title: 'GreenEduMap',
       logo: {
-        alt: 'CityResQ360 Logo',
+        alt: 'GreenEduMap Logo',
         src: '/logo.png',
       },
       items: [
