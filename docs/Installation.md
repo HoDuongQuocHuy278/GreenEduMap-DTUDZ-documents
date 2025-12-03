@@ -8,10 +8,6 @@
 |---------|---------------------|----------|
 | **Docker** | 20.10+ | Container runtime |
 | **Docker Compose** | 2.0+ | Orchestration |
-| **Node.js** | 18.x+ | Frontend development |
-| **Python** | 3.10+ | Backend & AI services |
-| **PostgreSQL** | 14+ | Database |
-| **Redis** | 7.0+ | Cache & real-time |
 | **Git** | 2.30+ | Version control |
 
 ### Phần cứng khuyến nghị
@@ -23,7 +19,7 @@
 
 ---
 
-## 🚀 Cài đặt nhanh
+## 🚀 Cài đặt và Khởi chạy
 
 ### 1. Clone repository
 
@@ -83,166 +79,15 @@ docker-compose ps
 docker-compose logs -f
 ```
 
----
-
-## 🔧 Cài đặt từng thành phần
-
-### Frontend (Next.js Web)
-
-```bash
-cd frontend/web
-npm install
-
-# Development
-npm run dev
-
-# Production build
-npm run build
-npm start
-```
-
-**Truy cập:** http://localhost:3000
-
-### Mobile App (React Native)
-
-```bash
-cd frontend/mobile
-npm install
-
-# iOS
-npx expo start --ios
-
-# Android
-npx expo start --android
-```
-
-### Backend (Python)
-
-```bash
-cd backend
-python -m venv venv
-
-# Windows
-venv\Scripts\activate
-
-# Linux/Mac
-source venv/bin/activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run migrations
-python manage.py migrate
-
-# Start server
-python manage.py runserver
-```
-
-**API Endpoint:** http://localhost:8000
-
-### AI Services (FastAPI)
-
-```bash
-cd ai-services
-python -m venv venv
-source venv/bin/activate
-
-pip install -r requirements.txt
-
-# Start FastAPI
-uvicorn main:app --reload --port 8001
-```
-
-**API Docs:** http://localhost:8001/docs
-
-### Database Setup
-
-```bash
-# Khởi động PostgreSQL với PostGIS
-docker run -d \
-  --name greenedumap-db \
-  -e POSTGRES_DB=greenedumap \
-  -e POSTGRES_USER=postgres \
-  -e POSTGRES_PASSWORD=your_password \
-  -p 5432:5432 \
-  postgis/postgis:14-3.3
-
-# Import dữ liệu mẫu
-psql -h localhost -U postgres -d greenedumap < data/sample_data.sql
-```
-
-### Redis Cache
-
-```bash
-# Khởi động Redis
-docker run -d \
-  --name greenedumap-redis \
-  -p 6379:6379 \
-  redis:7-alpine
-
-# Test connection
-redis-cli ping
-```
-
-### Message Broker (Kafka)
-
-```bash
-# Khởi động Kafka với Zookeeper
-docker-compose -f docker-compose.kafka.yml up -d
-
-# Tạo topics
-docker exec -it kafka kafka-topics --create \
-  --topic environment-data \
-  --bootstrap-server localhost:9092 \
-  --partitions 3 \
-  --replication-factor 1
-```
-
-### API Gateway (Traefik)
-
-```bash
-# Khởi động Traefik
-docker run -d \
-  --name traefik \
-  -p 80:80 \
-  -p 8080:8080 \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  -v $(pwd)/traefik.yml:/etc/traefik/traefik.yml \
-  traefik:v2.10
-```
-
-**Dashboard:** http://localhost:8080
-
-### Authentication (Keycloak)
-
-```bash
-# Khởi động Keycloak
-docker run -d \
-  --name keycloak \
-  -e KEYCLOAK_ADMIN=admin \
-  -e KEYCLOAK_ADMIN_PASSWORD=admin \
-  -p 8180:8080 \
-  quay.io/keycloak/keycloak:latest start-dev
-```
-
-**Admin Console:** http://localhost:8180
-
----
-
-## 🗄️ Semantic Layer (FiWARE Orion-LD)
-
-```bash
-# Khởi động MongoDB cho Orion-LD
-docker run -d --name mongodb -p 27017:27017 mongo:4.4
-
-# Khởi động Orion-LD
-docker run -d --name orion-ld \
-  -p 1026:1026 \
-  --link mongodb:mongodb \
-  fiware/orion-ld -dbhost mongodb
-```
-
-**NGSI-LD API:** http://localhost:1026
+Hệ thống sẽ tự động khởi động các thành phần:
+- **Frontend**: Next.js (Web) & React Native (Mobile support)
+- **Backend**: FastAPI (Python)
+- **Database**: PostgreSQL + PostGIS
+- **Message Broker**: RabbitMQ
+- **AI Services**: Python Services
+- **Gateway**: Traefik
+- **Auth**: Keycloak
+- **Semantic**: FiWARE Orion-LD & MongoDB
 
 ---
 
@@ -271,24 +116,8 @@ pg_isready -h localhost -p 5432 && echo "✅ Database OK" || echo "❌ Database 
 # Redis
 redis-cli ping && echo "✅ Redis OK" || echo "❌ Redis Failed"
 
-# Kafka
-docker exec kafka kafka-broker-api-versions --bootstrap-server localhost:9092 && echo "✅ Kafka OK" || echo "❌ Kafka Failed"
-```
-
-### Chạy test suite
-
-```bash
-# Backend tests
-cd backend
-pytest
-
-# Frontend tests
-cd frontend/web
-npm test
-
-# AI Services tests
-cd ai-services
-pytest tests/
+# RabbitMQ
+curl -f http://localhost:15672 && echo "✅ RabbitMQ OK" || echo "❌ RabbitMQ Failed"
 ```
 
 ---
@@ -326,22 +155,6 @@ docker ps | grep postgres
 
 # Test connection
 psql -h localhost -U postgres -d greenedumap
-```
-
-**4. Module not found (Python)**
-```bash
-# Cài lại dependencies
-pip install -r requirements.txt --force-reinstall
-
-# Clear cache
-pip cache purge
-```
-
-**5. Node modules error**
-```bash
-# Xóa và cài lại
-rm -rf node_modules package-lock.json
-npm install
 ```
 
 ---
@@ -392,49 +205,12 @@ docker-compose logs -f backend
 
 ---
 
-## 🚀 Production Deployment
-
-### Build Production Images
-
-```bash
-# Build tất cả images
-docker-compose -f docker-compose.prod.yml build
-
-# Push to registry
-docker-compose -f docker-compose.prod.yml push
-```
-
-### Kubernetes Deployment
-
-```bash
-# Apply configurations
-kubectl apply -f k8s/
-
-# Check status
-kubectl get pods -n greenedumap
-
-# Scale services
-kubectl scale deployment backend --replicas=3
-```
-
----
-
-## 📚 Tài liệu tham khảo
+##  Tài liệu tham khảo
 
 - [Architecture](./Architecture.md) - Kiến trúc hệ thống
 - [API Documentation](./api/README.md) - Tài liệu API
 - [Contributing](../CONTRIBUTING.md) - Hướng dẫn đóng góp
 - [Troubleshooting](../TROUBLESHOOTING.md) - Xử lý sự cố
-
----
-
-## 💡 Tips
-
-- Sử dụng Docker Compose cho development để dễ quản lý
-- Luôn backup database trước khi update
-- Kiểm tra logs thường xuyên để phát hiện lỗi sớm
-- Sử dụng environment variables cho cấu hình
-- Enable auto-restart cho production services
 
 ---
 

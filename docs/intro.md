@@ -52,7 +52,7 @@ Hệ thống được xây dựng dựa trên các công nghệ hiện đại:
 | **Backend Core**   | Python, Redis (Cache)                                   |
 | **AI Services**    | FastAPI (Python) cho NLP, Computer Vision, scikit-learn |
 | **API Gateway**    | Traefik, Keycloak (Auth)                                |
-| **Message Broker** | Apache Kafka, MQTT (EMQX/Mosquitto)                     |
+| **Message Broker** | RabbitMQ, MQTT (EMQX/Mosquitto)                         |
 | **Realtime**       | Reverb (WebSocket)                                      |
 | **Database**       | PostgreSQL + PostGIS (GeoData), OpenSearch              |
 | **Semantic**       | FiWARE Orion-LD, MongoDB                                |
