@@ -9,22 +9,10 @@ GreenEduMap được thiết kế theo kiến trúc **Microservices** hướng s
 ## Thành phần và công nghệ
 
 | Thành phần | Công nghệ sử dụng | Vai trò |
-# 🏗️ Kiến trúc hệ thống GreenEduMap
-
-![Kiến trúc hệ thống](../static/img/Kien_truc_he_thong_GreenEduMap.png)
-
-## Tổng quan
-
-GreenEduMap được thiết kế theo kiến trúc **Microservices** hướng sự kiện (Event-Driven), tích hợp IoT và AI để xử lý dữ liệu môi trường và giáo dục theo thời gian thực.
-
-## Thành phần và công nghệ
-
-| Thành phần | Công nghệ sử dụng | Vai trò |
 | :--- | :--- | :--- |
 | **Frontend** | React Native (App), Next.js (Web) | Giao diện người dùng, bản đồ 3D |
 | **API Gateway** | Traefik, Keycloak (Auth) | Routing, bảo mật, xác thực |
 | **Backend Core** | FastAPI (Python), Redis (Cache) | Xử lý logic chính, API Management |
-| **Database** | PostgreSQL + PostGIS | Lưu trữ dữ liệu không gian, quan hệ |
 | **Message Broker** | RabbitMQ, MQTT (EMQX/Mosquitto) | Xử lý thông điệp, IoT ingestion |
 | **IoT Ingestion** | MQTT Broker, IoT Adapter | Thu thập dữ liệu từ cảm biến |
 | **AI Services** | FastAPI (Python) | NLP, Computer Vision, scikit-learn |
