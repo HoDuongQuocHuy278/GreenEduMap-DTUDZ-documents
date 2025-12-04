@@ -1,19 +1,18 @@
-# 🤖 AI/ML Service
+# 🤖 AI Service
 
-## Giới thiệu
+## 📋 Tổng quan
 
-AI/ML Service là một microservice chuyên biệt trong hệ thống **GreenEduMap**, cung cấp các chức năng trí tuệ nhân tạo và học máy để phân tích dữ liệu môi trường, giáo dục và không gian địa lý theo thời gian thực.
+**Ngôn ngữ lập trình:** Python 3.11 + FastAPI  
+**Port:** 8006  
+**Database:** PostgreSQL (read-only)  
+**Message Queue:** RabbitMQ  
+**Trạng thái:** ✅ Hoạt động
 
-## Công nghệ sử dụng
+AI Service cung cấp các chức năng machine learning cho hệ thống **GreenEduMap**, bao gồm phân vùng (clustering), dự báo (prediction), và phân tích tương quan (correlation) dữ liệu môi trường và giáo dục.
 
-- **Framework**: FastAPI (Python)
-- **Machine Learning**: scikit-learn, TensorFlow/PyTorch
-- **NLP**: spaCy, Transformers (Hugging Face)
-- **Computer Vision**: OpenCV, YOLO
-- **Message Queue**: RabbitMQ (Consumer)
-- **Database**: PostgreSQL (read), Redis (cache)
+---
 
-## Chức năng chính
+## 🎯 Chức năng chính
 
 ### 1. 🌳 Phân tích dữ liệu môi trường
 
@@ -144,7 +143,7 @@ GET  /api/v1/ai/models
 ```env
 # AI Service Configuration
 AI_SERVICE_HOST=0.0.0.0
-AI_SERVICE_PORT=8001
+AI_SERVICE_PORT=8006
 
 # RabbitMQ
 RABBITMQ_HOST=rabbitmq
@@ -174,7 +173,7 @@ Service được deploy trong Docker container và quản lý bởi Docker Compo
 ai-service:
   build: ./services/ai-service
   ports:
-    - "8001:8001"
+    - "8006:8006"
   depends_on:
     - rabbitmq
     - postgres
