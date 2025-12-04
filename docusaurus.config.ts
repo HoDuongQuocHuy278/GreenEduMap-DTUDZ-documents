@@ -77,6 +77,10 @@ const config: Config = {
               to: '/Architecture',
             },
             {
+              label: 'Services',
+              to: '/Services',
+            },
+            {
               label: 'Installation',
               to: '/Installation',
             },
