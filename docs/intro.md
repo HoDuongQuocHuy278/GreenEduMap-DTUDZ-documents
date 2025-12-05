@@ -48,13 +48,13 @@ Hệ thống được xây dựng dựa trên các công nghệ hiện đại:
 | Thành phần         | Công nghệ sử dụng                                       |
 | ------------------ | ------------------------------------------------------- |
 | **Mobile App**     | React Native (iOS & Android)                            |
-| **Web**            | Next.js 15                                              |
+| **Web**            | Next.js 14                                              |
 | **Backend Core**   | Python, Redis (Cache)                                   |
-| **AI Services**    | FastAPI (Python) cho NLP, Computer Vision, scikit-learn |
+| **AI Services**    | FastAPI (Python) cho NLP, scikit-learn                  |
 | **API Gateway**    | Traefik, Keycloak (Auth)                                |
 | **Message Broker** | RabbitMQ, MQTT (EMQX/Mosquitto)                         |
 | **Realtime**       | Reverb (WebSocket)                                      |
-| **Database**       | PostgreSQL + PostGIS (GeoData), OpenSearch              |
+| **Database**       | PostgreSQL + PostGIS (GeoData)                          |
 | **Semantic**       | FiWARE Orion-LD, MongoDB                                |
 
 ---

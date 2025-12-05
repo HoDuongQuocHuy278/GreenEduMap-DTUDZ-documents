@@ -18,7 +18,7 @@ GreenEduMap được thiết kế theo kiến trúc **Microservices** hướng s
 | **AI Services** | FastAPI (Python) | NLP, scikit-learn |
 | **Semantic Web** | Context Broker, RML Mapper | Quản lý ngữ nghĩa, chuẩn hóa dữ liệu (LOD) |
 | **Realtime** | Reverb (WebSocket) | Thông báo thời gian thực |
-| **Database** | PostgreSQL + PostGIS (GeoData), OpenSearch | Lưu trữ dữ liệu |
+| **Database** | PostgreSQL + PostGIS (GeoData) | Lưu trữ dữ liệu |
 | **Semantic** | FiWARE Orion-LD, MongoDB | Quản lý ngữ cảnh, Linked Data |
 
 ## Luồng dữ liệu chi tiết
@@ -41,13 +41,13 @@ GreenEduMap được thiết kế theo kiến trúc **Microservices** hướng s
 ### 3. Processing & AI Layer
 - **AI Services (FastAPI)**:
     - Nhận dữ liệu từ RabbitMQ hoặc API call từ Backend Core.
-    - Thực hiện phân tích NLP, Computer Vision.
+    - Thực hiện phân tích NLP.
 - **Workers**: Các worker (Celery Worker) xử lý tác vụ từ RabbitMQ/Redis.
 
 ### 4. Storage Layer (Lưu trữ)
 - **PostgreSQL + PostGIS**: Lưu trữ dữ liệu quan hệ và không gian (GIS).
 - **MongoDB**: Lưu trữ dữ liệu ngữ nghĩa (Semantic Data) cho Orion-LD.
-- **OpenSearch**: Hỗ trợ tìm kiếm full-text và log aggregation.
+
 
 ### 5. Notification & Realtime Layer
 - **Reverb**: Server WebSocket để đẩy thông báo realtime xuống Client (Web/App).
