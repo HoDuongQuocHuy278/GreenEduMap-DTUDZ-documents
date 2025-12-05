@@ -32,14 +32,6 @@ AI Service cung cấp các chức năng machine learning cho hệ thống **Gree
 
 **Chatbot hỗ trợ**: Trả lời tự động các câu hỏi về môi trường và giáo dục xanh.
 
-### 👁️ Computer Vision
-
-**Phân tích hình ảnh vệ tinh**: Phát hiện thay đổi độ phủ xanh và sử dụng đất theo thời gian.
-
-**Nhận diện đối tượng**: Detect tự động các cơ sở giáo dục, công viên và cây xanh trong hình ảnh.
-
-**Đánh giá môi trường**: Phân tích mức độ xanh của khu vực từ hình ảnh.
-
 ### 📊 Machine Learning Models
 
 **Mô hình dự đoán**: Predict chất lượng môi trường tương lai và nhu cầu giáo dục theo khu vực.
@@ -54,7 +46,6 @@ AI Service cung cấp các chức năng machine learning cho hệ thống **Gree
 
 ### Các thành phần chính:
 - **NLP Engine** - Xử lý ngôn ngữ tự nhiên
-- **Computer Vision** - Phân tích hình ảnh
 - **ML Models** - Machine learning predictions
 - **Model Management** - Quản lý và load models
 - **RabbitMQ Consumer** - Nhận message từ queue
@@ -67,7 +58,7 @@ AI Service cung cấp các chức năng machine learning cho hệ thống **Gree
 Dữ liệu từ IoT Sensor được gửi qua MQTT đến RabbitMQ. AI Service consume message, thực hiện phân tích và dự đoán, sau đó cập nhật kết quả vào database.
 
 ### Xử lý theo Yêu cầu
-Client gửi request qua API Gateway, được route đến AI Service. Service xử lý bằng NLP, Computer Vision hoặc ML models tùy theo yêu cầu, rồi trả về kết quả.
+Client gửi request qua API Gateway, được route đến AI Service. Service xử lý bằng NLP hoặc ML models tùy theo yêu cầu, rồi trả về kết quả.
 
 ---
 

@@ -76,7 +76,7 @@ Quản lý khu vực xanh (công viên, vườn, rừng), tài nguyên xanh và 
 ### 🤖 [AI Service](./AIService/Readme.md)
 **Port:** 8006 | **Tech:** Python + FastAPI | **Queue:** RabbitMQ
 
-Machine Learning cho GreenEduMap: phân vùng K-Means, dự báo AQI 7 ngày, phân tích tương quan môi trường-giáo dục, xử lý NLP và Computer Vision.
+Machine Learning cho GreenEduMap: phân vùng K-Means, dự báo AQI 7 ngày, phân tích tương quan môi trường-giáo dục, xử lý NLP.
 
 ---
 

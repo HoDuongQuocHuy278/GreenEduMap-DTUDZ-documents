@@ -15,7 +15,7 @@ GreenEduMap được thiết kế theo kiến trúc **Microservices** hướng s
 | **Backend Core** | FastAPI (Python), Redis (Cache) | Xử lý logic chính, API Management |
 | **Message Broker** | RabbitMQ, MQTT (EMQX/Mosquitto) | Xử lý thông điệp, IoT ingestion |
 | **IoT Ingestion** | MQTT Broker, IoT Adapter | Thu thập dữ liệu từ cảm biến |
-| **AI Services** | FastAPI (Python) | NLP, Computer Vision, scikit-learn |
+| **AI Services** | FastAPI (Python) | NLP, scikit-learn |
 | **Semantic Web** | Context Broker, RML Mapper | Quản lý ngữ nghĩa, chuẩn hóa dữ liệu (LOD) |
 | **Realtime** | Reverb (WebSocket) | Thông báo thời gian thực |
 | **Database** | PostgreSQL + PostGIS (GeoData), OpenSearch | Lưu trữ dữ liệu |

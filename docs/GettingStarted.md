@@ -62,7 +62,7 @@ Dự án tập trung hình thành một nền tảng toàn diện kết hợp AI
 
 Hệ thống được thiết kế theo kiến trúc Microservices, đảm bảo khả năng mở rộng và xử lý dữ liệu lớn:
 
-- **Frontend**: Next.js 15 (Web), React Native (Mobile)
+- **Frontend**: Next.js 14 (Web), React Native (Mobile)
 - **Backend**: Python, FastAPI (Python cho AI)
 - **Database**: PostgreSQL + PostGIS, MongoDB, Redis
 - **Semantic**: FiWARE Orion-LD cho NGSI-LD
