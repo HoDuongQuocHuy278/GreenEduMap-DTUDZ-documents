@@ -13,241 +13,60 @@ Auth Service cung cấp xác thực và phân quyền cho hệ thống **GreenEd
 
 ## 🎯 Chức năng chính
 
-### 🔑 Authentication
+### 🔑 Xác thực người dùng
 
-- **User Registration & Login**
-  - Email/username + password registration
-  - Secure password hashing (bcrypt, 12 rounds)
-  - Email verification (optional)
-  - Account activation
+Người dùng có thể đăng ký tài khoản bằng email hoặc username kết hợp password. Mật khẩu được mã hóa an toàn bằng thuật toán Bcrypt với 12 rounds. Hệ thống hỗ trợ xác thực email tùy chọn và kích hoạt tài khoản.
 
-- **JWT Token Management**
-  - Access tokens (short-lived, 15 minutes)
-  - Refresh tokens (long-lived, 7 days)
-  - Token rotation on refresh
-  - Automatic token expiration
+### 🔄 Quản lý Token
 
-- **Password Security**
-  - Bcrypt hashing algorithm
-  - Salt generation per password
-  - Password strength validation
-  - Password reset flow
+Sử dụng hệ thống JWT với hai loại token:
+- **Access Token**: Thời hạn ngắn (15 phút), chứa thông tin user_id, email và role, dùng cho xác thực các request
+- **Refresh Token**: Thời hạn dài (7 ngày), lưu trong database, được rotate mỗi lần sử dụng
 
-### 👥 User Management
+### 👥 Hệ thống vai trò
 
-- **User Roles**
-  - `admin` - Full system access
-  - `developer` - API key management, development features
-  - `volunteer` - Rescue operations, community features
-  - `citizen` - Basic access, reporting
-  - `school` - Education features, school management
+Năm vai trò người dùng với quyền hạn khác nhau:
+- **Admin** - Toàn quyền quản trị hệ thống
+- **Developer** - Quản lý API key và tính năng phát triển
+- **Volunteer** - Tham gia hoạt động cứu trợ và cộng đồng
+- **Citizen** - Truy cập cơ bản và báo cáo
+- **School** - Quản lý trường học và tính năng giáo dục
 
-- **User Profile**
-  - Email, username (unique)
-  - Role assignment
-  - Active/inactive status
-  - Email verification status
-  - Public/private profile flag (OpenData compliance)
+### 👤 Thông tin người dùng
 
-### 🔐 Authorization
+Mỗi user profile bao gồm email và username (duy nhất), vai trò được gán, trạng thái hoạt động, tình trạng xác thực email, và cờ public/private cho tuân thủ OpenData.
 
-- **Role-Based Access Control (RBAC)**
-  - Permission checking middleware
-  - Route protection by role
-  - Resource-level permissions
-  - Hierarchical role system
+### 🔐 Phân quyền RBAC
 
-- **API Key Management**
-  - Generate API keys for developers
-  - Scoped permissions per key
-  - Rate limiting per key
-  - Key revocation
+Hệ thống Role-Based Access Control với middleware kiểm tra quyền, bảo vệ route theo vai trò, phân quyền cấp tài nguyên và hệ thống role phân cấp.
 
-### 🔄 Token Operations
+### 🔑 Quản lý API Key
 
-- **Access Token**
-  - Contains: user_id, email, role
-  - Expiration: 15 minutes
-  - Used for API authentication
-  - Stateless validation
-
-- **Refresh Token**
-  - Stored in database
-  - Expiration: 7 days
-  - Rotation on use
-  - Revocation support
+Developers có thể tạo API key với quyền hạn được giới hạn, mỗi key có rate limit riêng và có thể bị thu hồi khi cần thiết.
 
 ---
 
-## 🔌 API Endpoints
+## 💾 Lưu trữ dữ liệu
 
-### Authentication
+### Bảng Users
+Lưu trữ thông tin người dùng bao gồm ID (UUID), email, username, mật khẩu đã hash, vai trò, trạng thái hoạt động và xác thực, cùng thời gian tạo và cập nhật.
 
-```bash
-POST /api/v1/auth/register
-POST /api/v1/auth/login
-POST /api/v1/auth/refresh
-GET  /api/v1/auth/me
-POST /api/v1/auth/logout
-```
+### Bảng Refresh Tokens
+Theo dõi refresh tokens với user_id liên kết, token đã hash, thời hạn và trạng thái thu hồi.
 
-### User Management
-
-```bash
-GET    /api/v1/users          # List users (Admin only)
-GET    /api/v1/users/{id}     # Get user by ID
-PUT    /api/v1/users/{id}     # Update user
-DELETE /api/v1/users/{id}     # Delete user (Admin only)
-```
-
-### API Keys
-
-```bash
-POST   /api/v1/api-keys       # Create API key (Developers)
-GET    /api/v1/api-keys       # List my API keys
-DELETE /api/v1/api-keys/{id}  # Revoke API key
-```
+### Bảng API Keys
+Quản lý API keys với user_id sở hữu, key đã hash, quyền hạn scope và rate limit.
 
 ---
 
-## 💾 Database Schema
+## 🔒 Tính năng bảo mật
 
-### users
-
-```sql
-CREATE TABLE users (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    email VARCHAR(255) UNIQUE NOT NULL,
-    username VARCHAR(100) UNIQUE NOT NULL,
-    password_hash VARCHAR(255) NOT NULL,
-    role VARCHAR(50) NOT NULL DEFAULT 'citizen',
-    is_active BOOLEAN DEFAULT true,
-    is_verified BOOLEAN DEFAULT false,
-    is_public BOOLEAN DEFAULT true,
-    created_at TIMESTAMP DEFAULT NOW(),
-    updated_at TIMESTAMP DEFAULT NOW()
-);
-```
-
-### refresh_tokens
-
-```sql
-CREATE TABLE refresh_tokens (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    user_id UUID REFERENCES users(id) ON DELETE CASCADE,
-    token_hash VARCHAR(255) NOT NULL,
-    expires_at TIMESTAMP NOT NULL,
-    is_revoked BOOLEAN DEFAULT false,
-    created_at TIMESTAMP DEFAULT NOW()
-);
-```
-
-### api_keys
-
-```sql
-CREATE TABLE api_keys (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    user_id UUID REFERENCES users(id) ON DELETE CASCADE,
-    key_hash VARCHAR(255) NOT NULL,
-    scopes TEXT,
-    rate_limit INTEGER DEFAULT 1000,
-    created_at TIMESTAMP DEFAULT NOW()
-);
-```
-
----
-
-## 🚀 Setup
-
-### Environment Variables
-
-```env
-# Auth Service
-AUTH_SERVICE_HOST=0.0.0.0
-AUTH_SERVICE_PORT=8001
-
-# Database
-DATABASE_URL=postgresql+asyncpg://user:pass@postgres:5432/greenedumap
-
-# JWT Configuration
-JWT_SECRET_KEY=your-secret-key-here
-JWT_ALGORITHM=HS256
-ACCESS_TOKEN_EXPIRE_MINUTES=15
-REFRESH_TOKEN_EXPIRE_DAYS=7
-
-# Password Hashing
-BCRYPT_ROUNDS=12
-```
-
-### Docker Deployment
-
-```yaml
-auth-service:
-  build: ./modules/auth-service
-  ports:
-    - "8001:8001"
-  depends_on:
-    - postgres
-  environment:
-    - DATABASE_URL=postgresql+asyncpg://user:pass@postgres:5432/greenedumap
-    - JWT_SECRET_KEY=${JWT_SECRET_KEY}
-```
-
----
-
-## 📡 Usage Examples
-
-### Register User
-
-```bash
-curl -X POST http://localhost:8001/api/v1/auth/register \
-  -H "Content-Type: application/json" \
-  -d '{
-    "email": "user@example.com",
-    "username": "johndoe",
-    "password": "SecurePass123!",
-    "role": "citizen"
-  }'
-```
-
-### Login
-
-```bash
-curl -X POST http://localhost:8001/api/v1/auth/login \
-  -H "Content-Type: application/json" \
-  -d '{
-    "email": "user@example.com",
-    "password": "SecurePass123!"
-  }'
-```
-
-**Response:**
-```json
-{
-  "access_token": "eyJhbGciOiJIUzI1NiIs...",
-  "refresh_token": "eyJhbGciOiJIUzI1NiIs...",
-  "token_type": "bearer",
-  "expires_in": 900
-}
-```
-
-### Get Current User
-
-```bash
-curl http://localhost:8001/api/v1/auth/me \
-  -H "Authorization: Bearer <access_token>"
-```
-
----
-
-## 🔒 Security Features
-
-- **Password Hashing**: Bcrypt with 12 rounds
-- **JWT Tokens**: Signed with HS256 algorithm
-- **Token Expiration**: Short-lived access tokens
-- **Refresh Token Rotation**: New token on each refresh
-- **API Key Hashing**: Stored as hashed values
-- **Rate Limiting**: Per-user and per-API-key limits
+- **Password Hashing**: Bcrypt với 12 rounds và salt riêng cho mỗi password
+- **JWT Tokens**: Ký với thuật toán HS256
+- **Token Expiration**: Access token ngắn hạn để giảm rủi ro
+- **Refresh Token Rotation**: Token mới được cấp mỗi lần refresh
+- **API Key Hashing**: Key được lưu trữ dạng hash
+- **Rate Limiting**: Giới hạn theo user và API key
 
 ---
 

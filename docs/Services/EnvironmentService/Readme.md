@@ -8,171 +8,65 @@
 **External APIs:** OpenAQ, OpenWeather  
 **Trạng thái:** ✅ Hoạt động
 
-Environment Service tích hợp dữ liệu môi trường từ OpenAQ (chất lượng không khí) và OpenWeather (thời tiết) cho hệ thống **GreenEduMap**.
+Environment Service tích hợp dữ liệu môi trường từ các nguồn bên ngoài để phục vụ hệ thống **GreenEduMap**.
 
 ---
 
 ## 🎯 Chức năng chính
 
-### 🌫️ Air Quality Data (OpenAQ API)
+### 🌫️ Dữ liệu Chất lượng Không khí
 
-- **Real-time Air Quality**
-  - PM2.5, PM10 measurements
-  - CO, CO2, NO2 levels
-  - AQI calculation
-  - Location-based queries
+Tích hợp từ **OpenAQ API** để cung cấp:
+- **Dữ liệu thời gian thực**: PM2.5, PM10, CO, CO2, NO2 và chỉ số AQI
+- **Dữ liệu lịch sử**: Time-series cho phân tích xu hướng
+- **Truy vấn theo vị trí**: Tìm dữ liệu trong bán kính xác định
+- **Dữ liệu bản đồ nhiệt**: Hỗ trợ visualization
 
-- **Historical Data**
-  - Time-series air quality data
-  - Trend analysis
-  - Data aggregation
-  - Export capabilities
+### ☀️ Dữ liệu Thời tiết
 
-- **Spatial Queries (PostGIS)**
-  - Find measurements by location + radius
-  - Nearest air quality station
-  - Coverage area analysis
-  - Heatmap data generation
+Tích hợp từ **OpenWeather API** để cung cấp:
+- **Thời tiết hiện tại**: Nhiệt độ, độ ẩm, gió, áp suất và mô tả điều kiện
+- **Dự báo 5 ngày**: Cập nhật mỗi 3 giờ với nhiệt độ dự đoán, xác suất mưa
+- **Truy vấn theo vị trí**: Thời tiết theo tọa độ hoặc thành phố
 
-### ☀️ Weather Data (OpenWeather API)
+### 🔄 Cập nhật Dữ liệu Tự động
 
-- **Current Weather**
-  - Temperature, humidity
-  - Wind speed and direction
-  - Atmospheric pressure
-  - Weather conditions
+Sử dụng APScheduler để lên lịch:
+- **Chất lượng không khí**: Cập nhật mỗi 1 giờ
+- **Thời tiết**: Cập nhật mỗi 30 phút
+- **Dọn dẹp dữ liệu cũ**: Chạy hàng ngày
 
-- **5-Day Forecast**
-  - 3-hour intervals
-  - Temperature predictions
-  - Precipitation probability
-  - Weather condition forecasts
+### 📡 Tạo Entity NGSI-LD
 
-- **Location-based Queries**
-  - Weather by coordinates
-  - City-level weather
-  - Multiple locations support
+Service tự động tạo các entity theo chuẩn Smart Cities:
+- **AirQualityObserved**: Dữ liệu quan trắc chất lượng không khí
+- **WeatherObserved**: Dữ liệu quan trắc thời tiết
 
-### 🔄 Scheduled Data Fetching
-
-- **Air Quality**: Fetch every hour
-- **Weather**: Fetch every 30 minutes
-- **Cleanup**: Remove old data daily
-- **APScheduler** for task management
-
-### 📡 NGSI-LD Entity Creation
-
-- **AirQualityObserved** entities
-- **WeatherObserved** entities
-- ETSI GS CIM 009 V1.6.1 compliance
-- GeoProperty support
+Tuân thủ ETSI GS CIM 009 V1.6.1 với hỗ trợ GeoProperty.
 
 ---
 
-## 🔌 API Endpoints
+## 🔗 APIs Bên ngoài
 
-### Air Quality
+### OpenAQ
+- **Free tier**: 10,000 requests/tháng
+- **API Key**: Không cần (public API)
+- **Dữ liệu**: Chất lượng không khí toàn cầu
 
-```bash
-GET /api/v1/air-quality                # Latest measurements
-GET /api/v1/air-quality/location       # By location + radius
-GET /api/v1/air-quality/history        # Historical data
-GET /api/v1/air-quality/{id}           # Specific measurement
-```
-
-### Weather
-
-```bash
-GET /api/v1/weather/current            # Current weather
-GET /api/v1/weather/forecast           # 5-day forecast
-GET /api/v1/weather/location           # Weather by location
-```
-
-### NGSI-LD
-
-```bash
-GET  /ngsi-ld/v1/entities?type=AirQuality
-POST /ngsi-ld/v1/entities              # Create entity
-```
+### OpenWeather
+- **Free tier**: 60 calls/phút, 1 triệu calls/tháng
+- **API Key**: Cần đăng ký
+- **Dữ liệu**: Thời tiết và dự báo
 
 ---
 
-## 🚀 Setup
+## 💾 Dữ liệu lưu trữ
 
-### API Keys
+### Chất lượng Không khí
+Mỗi measurement bao gồm: ID định danh, tên vị trí, tọa độ địa lý, chỉ số AQI, các giá trị PM2.5 và PM10 (µg/m³), cùng thời điểm đo.
 
-#### OpenAQ API
-- Free tier: 10,000 requests/month
-- Sign up: https://openaq.org/
-- No API key required (public API)
-
-#### OpenWeather API
-- Free tier: 60 calls/minute, 1M calls/month
-- Sign up: https://openweathermap.org/api
-- Get API key: https://home.openweathermap.org/api_keys
-
-### Environment Variables
-
-```env
-# Environment Service
-ENVIRONMENT_SERVICE_HOST=0.0.0.0
-ENVIRONMENT_SERVICE_PORT=8007
-
-# Database
-DATABASE_URL=postgresql+asyncpg://user:pass@postgres:5432/greenedumap
-
-# External APIs
-OPENWEATHER_API_KEY=your_api_key_here
-OPENAQ_API_URL=https://api.openaq.org/v2
-
-# Scheduler
-FETCH_AIR_QUALITY_INTERVAL=3600  # 1 hour
-FETCH_WEATHER_INTERVAL=1800      # 30 minutes
-```
-
----
-
-## 📡 Usage Examples
-
-### Get Air Quality Near Da Nang
-
-```bash
-curl "http://localhost:8007/api/v1/air-quality/location?lat=16.0544&lon=108.2022&radius=50"
-```
-
-**Response:**
-```json
-{
-  "data": [
-    {
-      "id": "uuid-123",
-      "location": "Da Nang",
-      "coordinates": {"lat": 16.0544, "lon": 108.2022},
-      "aqi": 45,
-      "pm25": 12.5,
-      "pm10": 25.3,
-      "timestamp": "2025-12-04T22:00:00Z"
-    }
-  ]
-}
-```
-
-### Get Current Weather
-
-```bash
-curl "http://localhost:8007/api/v1/weather/current?lat=16.0544&lon=108.2022"
-```
-
-**Response:**
-```json
-{
-  "temperature": 28.5,
-  "humidity": 75,
-  "wind_speed": 3.5,
-  "weather": "Clear",
-  "timestamp": "2025-12-04T22:00:00Z"
-}
-```
+### Thời tiết
+Mỗi observation bao gồm: nhiệt độ (°C), độ ẩm (%), tốc độ gió (m/s), mô tả điều kiện thời tiết và thời điểm đo.
 
 ---
 

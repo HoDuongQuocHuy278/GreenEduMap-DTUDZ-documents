@@ -13,246 +13,59 @@ Education Service quản lý thông tin trường học và chương trình giá
 
 ## 🎯 Chức năng chính
 
-### 🏫 Schools Management
+### 🏫 Quản lý Trường học
 
-- **CRUD Operations**
-  - Tạo, đọc, cập nhật, xóa thông tin trường học
-  - Quản lý metadata trường học (JSONB)
-  - Phân loại theo cấp học
-  - Quản lý cơ sở vật chất
+Service hỗ trợ đầy đủ các thao tác tạo, đọc, cập nhật và xóa thông tin trường học. Mỗi trường có metadata mở rộng lưu trữ dạng JSONB, được phân loại theo cấp học (tiểu học, THCS, THPT) với quản lý chi tiết cơ sở vật chất.
 
-- **Geospatial Support (PostGIS)**
-  - Lưu trữ vị trí địa lý (POINT geometry)
-  - Tìm trường học gần nhất
-  - Tính khoảng cách giữa các trường
-  - Buffer zone analysis
+### 🗺️ Hỗ trợ Địa lý (PostGIS)
 
-- **Green Score Calculation**
-  - Điểm xanh từ 0-100
-  - Dựa trên cơ sở vật chất xanh
-  - Số lượng và chất lượng khóa học xanh
-  - Tương quan với chất lượng môi trường
-  - Hoạt động cộng đồng
+Vị trí trường học được lưu trữ dưới dạng POINT geometry, cho phép:
+- Tìm kiếm trường học theo bán kính từ một vị trí
+- Tính toán khoảng cách giữa các trường
+- Phân tích vùng đệm và độ phủ
 
-- **School Rankings**
-  - Xếp hạng theo điểm xanh
-  - Lọc theo khu vực
-  - So sánh giữa các trường
-  - Xu hướng theo thời gian
+### 🌱 Tính toán Điểm xanh (0-100)
 
-### 📚 Green Courses Management
+Điểm xanh được tính dựa trên bốn yếu tố:
+- **Cơ sở vật chất xanh (40%)**: Pin mặt trời (+20), vườn (+15), chương trình tái chế (+10), thu nước mưa (+10), đèn tiết kiệm năng lượng (+5)
+- **Khóa học xanh (30%)**: Số lượng và chất lượng các khóa học môi trường
+- **Chất lượng môi trường (20%)**: Đánh giá môi trường xung quanh trường
+- **Hoạt động cộng đồng (10%)**: Mức độ tham gia hoạt động môi trường
 
-- **Course Tracking**
-  - Quản lý khóa học giáo dục môi trường
-  - Phân loại theo danh mục
-  - Liên kết với trường học
-  - Metadata chương trình học (JSONB)
+### 🏆 Xếp hạng Trường học
 
-- **Course Categories**
-  - Biến đổi khí hậu
-  - Năng lượng tái tạo
-  - Quản lý rác thải
-  - Bảo tồn đa dạng sinh học
-  - Nông nghiệp bền vững
+Hệ thống xếp hạng các trường theo điểm xanh, hỗ trợ lọc theo khu vực, so sánh giữa các trường và theo dõi xu hướng theo thời gian.
 
-### 🗺️ Spatial Queries
+### 📚 Quản lý Khóa học Xanh
 
-- **Nearby Schools**
-  - Tìm trường trong bán kính
-  - Sắp xếp theo khoảng cách
-  - Lọc theo cấp học
-  - Lọc theo điểm xanh tối thiểu
+Theo dõi các khóa học giáo dục môi trường được phân loại theo danh mục:
+- Biến đổi khí hậu
+- Năng lượng tái tạo
+- Quản lý rác thải
+- Bảo tồn đa dạng sinh học
+- Nông nghiệp bền vững
 
-- **Coverage Analysis**
-  - Phân tích độ phủ trường học
-  - Xác định khu vực thiếu trường
-  - Phân bố theo quận/huyện
-  - Mật độ học sinh/km²
-
-### 📊 OpenData Compliance
-
-- **Public API Endpoints**
-  - Dữ liệu trường học công khai
-  - Thông tin khóa học xanh
-  - Điểm xanh và xếp hạng
-  - Export CSV, GeoJSON
+Mỗi khóa học liên kết với trường học cụ thể và có chương trình học chi tiết lưu trữ dạng JSONB.
 
 ---
 
-## 🔌 API Endpoints
+## 💾 Lưu trữ dữ liệu
 
-### Schools
+### Bảng Schools
+Lưu trữ thông tin trường học: ID (UUID), tên trường, cấp học, vị trí địa lý (POINT geometry), địa chỉ, điểm xanh và cơ sở vật chất (JSONB).
 
-```bash
-POST   /api/v1/schools                    # Create school
-GET    /api/v1/schools                    # List schools (with filters)
-GET    /api/v1/schools/{id}               # Get school details
-PUT    /api/v1/schools/{id}               # Update school
-DELETE /api/v1/schools/{id}               # Delete school
-GET    /api/v1/schools/nearby             # Find nearby schools
-GET    /api/v1/schools/rankings           # Get schools by green score
-```
-
-### Green Courses
-
-```bash
-POST   /api/v1/green-courses              # Create course
-GET    /api/v1/green-courses              # List courses
-GET    /api/v1/green-courses/{id}         # Get course details
-GET    /api/v1/green-courses/by-school/{school_id}  # Courses by school
-PUT    /api/v1/green-courses/{id}         # Update course
-DELETE /api/v1/green-courses/{id}         # Delete course
-```
+### Bảng Green Courses
+Quản lý khóa học xanh: ID, trường liên kết, tên khóa học, danh mục, mô tả và chương trình học (JSONB).
 
 ---
 
-## 💾 Database Schema
+## 📊 Tuân thủ OpenData
 
-### schools
-
-```sql
-CREATE TABLE schools (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    name VARCHAR(255) NOT NULL,
-    school_type VARCHAR(50),  -- primary, secondary, high_school
-    location GEOMETRY(POINT, 4326) NOT NULL,
-    address TEXT,
-    green_score FLOAT DEFAULT 0,
-    facilities JSONB,  -- solar panels, gardens, recycling, etc.
-    created_at TIMESTAMP DEFAULT NOW(),
-    updated_at TIMESTAMP DEFAULT NOW()
-);
-
-CREATE INDEX idx_schools_location ON schools USING GIST(location);
-CREATE INDEX idx_schools_green_score ON schools(green_score DESC);
-```
-
-### green_courses
-
-```sql
-CREATE TABLE green_courses (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    school_id UUID REFERENCES schools(id) ON DELETE CASCADE,
-    name VARCHAR(255) NOT NULL,
-    category VARCHAR(100),
-    description TEXT,
-    syllabus JSONB,
-    created_at TIMESTAMP DEFAULT NOW(),
-    updated_at TIMESTAMP DEFAULT NOW()
-);
-
-CREATE INDEX idx_green_courses_school ON green_courses(school_id);
-```
-
----
-
-## 🚀 Setup
-
-### Environment Variables
-
-```env
-# Education Service
-EDUCATION_SERVICE_HOST=0.0.0.0
-EDUCATION_SERVICE_PORT=8008
-
-# Database
-DATABASE_URL=postgresql+asyncpg://user:pass@postgres:5432/greenedumap
-
-# Green Score Weights
-GREEN_SCORE_FACILITIES_WEIGHT=0.4
-GREEN_SCORE_COURSES_WEIGHT=0.3
-GREEN_SCORE_ENVIRONMENT_WEIGHT=0.2
-GREEN_SCORE_COMMUNITY_WEIGHT=0.1
-```
-
-### Docker Deployment
-
-```yaml
-education-service:
-  build: ./modules/education-service
-  ports:
-    - "8008:8008"
-  depends_on:
-    - postgres
-  environment:
-    - DATABASE_URL=postgresql+asyncpg://user:pass@postgres:5432/greenedumap
-```
-
----
-
-## 📡 Usage Examples
-
-### Create School
-
-```bash
-curl -X POST http://localhost:8008/api/v1/schools \
-  -H "Content-Type: application/json" \
-  -d '{
-    "name": "Trường THPT Chuyên Lê Quý Đôn",
-    "school_type": "high_school",
-    "location": {"lat": 16.0544, "lon": 108.2022},
-    "address": "Đà Nẵng",
-    "facilities": {
-      "solar_panels": true,
-      "garden": true,
-      "recycling_program": true
-    }
-  }'
-```
-
-### Find Nearby Schools
-
-```bash
-curl "http://localhost:8008/api/v1/schools/nearby?lat=16.0544&lon=108.2022&radius=5&min_green_score=70"
-```
-
-**Response:**
-```json
-{
-  "data": [
-    {
-      "id": "uuid-123",
-      "name": "Trường THPT Chuyên Lê Quý Đôn",
-      "green_score": 92,
-      "distance_km": 2.5,
-      "location": {"lat": 16.0544, "lon": 108.2022}
-    }
-  ],
-  "count": 1
-}
-```
-
-### Get School Rankings
-
-```bash
-curl "http://localhost:8008/api/v1/schools/rankings?limit=10"
-```
-
----
-
-## 🧮 Green Score Algorithm
-
-Điểm xanh (0-100) được tính dựa trên:
-
-```python
-green_score = (
-    facilities_score * 0.4 +      # Cơ sở vật chất xanh
-    courses_score * 0.3 +          # Số lượng và chất lượng khóa học
-    environment_score * 0.2 +      # Chất lượng môi trường xung quanh
-    community_score * 0.1          # Hoạt động cộng đồng
-)
-```
-
-**Facilities Score:**
-- Solar panels: +20 points
-- Garden/green space: +15 points
-- Recycling program: +10 points
-- Rainwater harvesting: +10 points
-- Energy-efficient lighting: +5 points
-
-**Courses Score:**
-- Number of green courses: +5 points each
-- Course quality rating: multiplier 1.0-1.5
+Service cung cấp dữ liệu công khai bao gồm:
+- Thông tin trường học
+- Danh sách khóa học xanh
+- Điểm xanh và xếp hạng
+- Xuất dữ liệu CSV và GeoJSON
 
 ---
 

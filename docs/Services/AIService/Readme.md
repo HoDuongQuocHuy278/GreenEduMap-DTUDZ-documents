@@ -8,189 +8,86 @@
 **Message Queue:** RabbitMQ  
 **Trạng thái:** ✅ Hoạt động
 
-AI Service cung cấp các chức năng machine learning cho hệ thống **GreenEduMap**, bao gồm phân vùng (clustering), dự báo (prediction), và phân tích tương quan (correlation) dữ liệu môi trường và giáo dục.
+AI Service cung cấp các chức năng machine learning cho hệ thống **GreenEduMap**, bao gồm phân vùng, dự báo và phân tích tương quan.
 
 ---
 
 ## 🎯 Chức năng chính
 
-### 1. 🌳 Phân tích dữ liệu môi trường
+### 🌳 Phân tích Dữ liệu Môi trường
 
-- **Phân tích chất lượng không khí**: Dự đoán AQI từ dữ liệu cảm biến IoT
-- **Phát hiện bất thường**: Phát hiện các mẫu bất thường trong dữ liệu môi trường (nhiệt độ, độ ẩm, CO2)
-- **Dự báo xu hướng**: Dự đoán xu hướng biến đổi môi trường theo thời gian
+**Phân tích chất lượng không khí**: Dự đoán chỉ số AQI từ dữ liệu cảm biến IoT bao gồm PM2.5, PM10, nhiệt độ và độ ẩm.
 
-### 2. 🎓 Xử lý ngôn ngữ tự nhiên (NLP)
+**Phát hiện bất thường**: Tự động detect các giá trị bất thường trong dữ liệu môi trường như đột biến nhiệt độ, độ ẩm hoặc nồng độ CO2.
 
-- **Phân tích văn bản giáo dục**: Trích xuất thông tin từ tài liệu, bài viết về giáo dục
-- **Phân loại nội dung**: Tự động phân loại và gắn thẻ nội dung giáo dục
-- **Sentiment Analysis**: Phân tích cảm xúc từ phản hồi người dùng
-- **Chatbot hỗ trợ**: Trả lời câu hỏi về môi trường và giáo dục
+**Dự báo xu hướng**: Predict biến đổi môi trường trong 7 ngày tới dựa trên dữ liệu lịch sử.
 
-### 3. 👁️ Computer Vision
+### 🎓 Xử lý Ngôn ngữ Tự nhiên (NLP)
 
-- **Phân tích hình ảnh vệ tinh**: Phát hiện thay đổi độ phủ xanh, sử dụng đất
-- **Nhận diện đối tượng**: Phát hiện cơ sở hạ tầng giáo dục, công viên, cây xanh
-- **Đánh giá chất lượng môi trường**: Phân tích hình ảnh để đánh giá mức độ xanh của khu vực
+**Phân tích văn bản giáo dục**: Trích xuất thông tin quan trọng từ tài liệu, bài viết về giáo dục môi trường.
 
-### 4. 📊 Machine Learning Models
+**Phân loại nội dung**: Tự động gắn thẻ và phân loại nội dung giáo dục theo chủ đề.
 
-- **Mô hình dự đoán**: Dự đoán chất lượng môi trường, nhu cầu giáo dục
-- **Mô hình phân cụm**: Phân cụm trường học, khu vực theo đặc điểm môi trường
-- **Mô hình khuyến nghị**: Gợi ý trường học, lộ trình di chuyển xanh
+**Sentiment Analysis**: Phân tích cảm xúc từ phản hồi người dùng để đánh giá chất lượng dịch vụ.
 
-## Kiến trúc Service
+**Chatbot hỗ trợ**: Trả lời tự động các câu hỏi về môi trường và giáo dục xanh.
 
-```
-┌─────────────────────────────────────────┐
-│         AI/ML Service (FastAPI)         │
-├─────────────────────────────────────────┤
-│  ┌──────────┐  ┌──────────┐  ┌────────┐│
-│  │   NLP    │  │ Computer │  │  ML    ││
-│  │  Engine  │  │  Vision  │  │ Models ││
-│  └──────────┘  └──────────┘  └────────┘│
-│  ┌──────────────────────────────────┐  │
-│  │      Model Management Layer      │  │
-│  └──────────────────────────────────┘  │
-│  ┌──────────────────────────────────┐  │
-│  │       RabbitMQ Consumer          │  │
-│  └──────────────────────────────────┘  │
-└─────────────────────────────────────────┘
-         ↓                    ↑
-    [RabbitMQ]          [Backend Core]
-         ↓                    ↑
-    [IoT Data]          [API Requests]
-```
+### 👁️ Computer Vision
 
-## Luồng xử lý dữ liệu
+**Phân tích hình ảnh vệ tinh**: Phát hiện thay đổi độ phủ xanh và sử dụng đất theo thời gian.
 
-### 1. Event-Driven Processing (Xử lý theo sự kiện)
+**Nhận diện đối tượng**: Detect tự động các cơ sở giáo dục, công viên và cây xanh trong hình ảnh.
 
-```
-IoT Sensor → MQTT → RabbitMQ → AI Service → Analysis → Update DB
-```
+**Đánh giá môi trường**: Phân tích mức độ xanh của khu vực từ hình ảnh.
 
-- AI Service lắng nghe queue từ RabbitMQ
-- Nhận dữ liệu cảm biến môi trường real-time
-- Thực hiện phân tích và dự đoán
-- Gửi kết quả về Backend Core hoặc FiWARE Orion-LD
+### 📊 Machine Learning Models
 
-### 2. API-Based Processing (Xử lý theo yêu cầu)
+**Mô hình dự đoán**: Predict chất lượng môi trường tương lai và nhu cầu giáo dục theo khu vực.
 
-```
-Client → API Gateway → Backend Core → AI Service → Response
-```
+**Mô hình phân cụm**: Cluster trường học và khu vực theo đặc điểm môi trường, tạo ra các vùng xanh/vàng/đỏ.
 
-- Nhận yêu cầu phân tích từ Backend Core
-- Xử lý dữ liệu (NLP, Computer Vision, ML)
-- Trả về kết quả qua REST API
+**Mô hình khuyến nghị**: Gợi ý trường học phù hợp và lộ trình di chuyển xanh cho người dùng.
 
-## Tích hợp với các Service khác
+---
 
-### 🔗 Backend Core (FastAPI)
-- Nhận yêu cầu phân tích qua REST API
-- Cung cấp kết quả dự đoán cho các module nghiệp vụ
-- Đồng bộ dữ liệu huấn luyện mô hình
+## 🏗️ Kiến trúc Service
 
-### 📨 RabbitMQ
-- Consumer: Lắng nghe queue để nhận dữ liệu IoT
-- Publisher: Đẩy kết quả phân tích vào queue cho các service khác
+### Các thành phần chính:
+- **NLP Engine** - Xử lý ngôn ngữ tự nhiên
+- **Computer Vision** - Phân tích hình ảnh
+- **ML Models** - Machine learning predictions
+- **Model Management** - Quản lý và load models
+- **RabbitMQ Consumer** - Nhận message từ queue
 
-### 🗄️ PostgreSQL + PostGIS
-- Đọc dữ liệu lịch sử để huấn luyện mô hình
-- Lưu trữ kết quả dự đoán và phân tích
+---
 
-### 🌐 FiWARE Orion-LD
-- Cập nhật entity với kết quả phân tích AI
-- Đồng bộ dữ liệu ngữ nghĩa (Semantic Data)
+## 🔄 Luồng Xử lý Dữ liệu
 
-### ⚡ Redis
-- Cache kết quả dự đoán
-- Lưu trữ tạm thời model inference results
+### Xử lý theo Sự kiện
+Dữ liệu từ IoT Sensor được gửi qua MQTT đến RabbitMQ. AI Service consume message, thực hiện phân tích và dự đoán, sau đó cập nhật kết quả vào database.
 
-## API Endpoints
+### Xử lý theo Yêu cầu
+Client gửi request qua API Gateway, được route đến AI Service. Service xử lý bằng NLP, Computer Vision hoặc ML models tùy theo yêu cầu, rồi trả về kết quả.
 
-### Phân tích môi trường
-```
-POST /api/v1/ai/environment/analyze
-POST /api/v1/ai/environment/predict-aqi
-POST /api/v1/ai/environment/detect-anomaly
-```
+---
 
-### NLP
-```
-POST /api/v1/ai/nlp/classify
-POST /api/v1/ai/nlp/extract-entities
-POST /api/v1/ai/nlp/sentiment
-```
+## 🔗 Tích hợp Services
 
-### Computer Vision
-```
-POST /api/v1/ai/vision/analyze-image
-POST /api/v1/ai/vision/detect-greenery
-POST /api/v1/ai/vision/classify-landuse
-```
+- **Backend Core**: Nhận request phân tích, trả kết quả dự đoán, đồng bộ dữ liệu training
+- **RabbitMQ**: Consumer nhận IoT data, Publisher gửi kết quả cho services khác
+- **PostgreSQL + PostGIS**: Đọc dữ liệu lịch sử để train, lưu kết quả phân tích
+- **Redis**: Cache kết quả dự đoán để tăng performance
 
-### Machine Learning
-```
-POST /api/v1/ai/ml/predict
-POST /api/v1/ai/ml/recommend
-GET  /api/v1/ai/models
-```
+---
 
-## Cấu hình môi trường
+## 📊 Giám sát
 
-```env
-# AI Service Configuration
-AI_SERVICE_HOST=0.0.0.0
-AI_SERVICE_PORT=8006
+- **Prometheus + Grafana** - Metrics monitoring
+- **ELK Stack** - Logging với Elasticsearch, Logstash, Kibana
+- **Jaeger** - Distributed tracing
 
-# RabbitMQ
-RABBITMQ_HOST=rabbitmq
-RABBITMQ_PORT=5672
-RABBITMQ_USER=admin
-RABBITMQ_PASS=admin123
+---
 
-# Database
-POSTGRES_HOST=postgres
-POSTGRES_PORT=5432
-POSTGRES_DB=greenedumap
-
-# Redis
-REDIS_HOST=redis
-REDIS_PORT=6379
-
-# Model Storage
-MODEL_PATH=/app/models
-MODEL_CACHE_SIZE=1GB
-```
-
-## Deployment
-
-Service được deploy trong Docker container và quản lý bởi Docker Compose:
-
-```yaml
-ai-service:
-  build: ./services/ai-service
-  ports:
-    - "8006:8006"
-  depends_on:
-    - rabbitmq
-    - postgres
-    - redis
-  volumes:
-    - ./models:/app/models
-  environment:
-    - RABBITMQ_HOST=rabbitmq
-    - POSTGRES_HOST=postgres
-```
-
-## Monitoring & Logging
-
-- **Metrics**: Prometheus + Grafana
-- **Logging**: ELK Stack (Elasticsearch, Logstash, Kibana)
-- **Tracing**: Jaeger (distributed tracing)
-
-## License
+## 📄 License
 
 Dự án này được phân phối dưới [GNU General Public License v3.0](https://github.com/HoDuongQuocHuy278/GreenEduMap-DTUDZ/blob/main/LICENSE).
