@@ -10,16 +10,15 @@ GreenEduMap được thiết kế theo kiến trúc **Microservices** hướng s
 
 | Thành phần | Công nghệ sử dụng | Vai trò |
 | :--- | :--- | :--- |
-| **Frontend** | React Native (App), Next.js (Web) | Giao diện người dùng, bản đồ 3D |
-| **API Gateway** | Traefik, Keycloak (Auth) | Routing, bảo mật, xác thực |
-| **Backend Core** | FastAPI (Python), Redis (Cache) | Xử lý logic chính, API Management |
-| **Message Broker** | RabbitMQ, MQTT (EMQX/Mosquitto) | Xử lý thông điệp, IoT ingestion |
+| **Web App** | Next.js 14 | Giao diện web, bản đồ 3D |
+| **Mobile App** | React Native (iOS & Android) | Ứng dụng di động đa nền tảng |
+| **Backend Core** | FastAPI (Python), Redis (Cache), JWT | Xử lý logic chính, API Management |
+| **AI/ML Service** | Python 3.11, scikit-learn, pandas, aio-pika | NLP, Machine Learning, xử lý dữ liệu |
+| **Message Broker** | RabbitMQ, MQTT (EMQX) | Xử lý thông điệp, IoT ingestion |
 | **IoT Ingestion** | MQTT Broker, IoT Adapter | Thu thập dữ liệu từ cảm biến |
-| **AI Services** | FastAPI (Python) | NLP, scikit-learn |
-| **Semantic Web** | Context Broker, RML Mapper | Quản lý ngữ nghĩa, chuẩn hóa dữ liệu (LOD) |
-| **Realtime** | Reverb (WebSocket) | Thông báo thời gian thực |
-| **Database** | PostgreSQL + PostGIS (GeoData) | Lưu trữ dữ liệu |
-| **Semantic** | FiWARE Orion-LD, MongoDB | Quản lý ngữ cảnh, Linked Data |
+| **Database** | PostgreSQL + PostGIS, MongoDB | Lưu trữ dữ liệu quan hệ và NoSQL |
+| **Semantic Layer** | FiWARE Orion-LD (NGSI-LD) | Quản lý ngữ cảnh, Linked Data |
+| **Real-time** | WebSocket | Thông báo thời gian thực |
 
 ## Luồng dữ liệu chi tiết
 
