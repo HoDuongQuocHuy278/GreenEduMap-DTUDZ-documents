@@ -27,11 +27,10 @@ GreenEduMap được thiết kế theo kiến trúc **Microservices** hướng s
 - **RabbitMQ**: Đóng vai trò backbone cho việc truyền tải dữ liệu sự kiện (event streaming) từ IoT và các services khác.
 - **Adapters**:
     - **IoT Adapter**: Chuẩn hóa dữ liệu cảm biến từ MQTT đẩy vào RabbitMQ.
-    - **NLP**: Xử lý dữ liệu văn bản.
 
 ### 2. Core Layer (Xử lý trung tâm)
-- **API Gateway (Traefik)**: Điều hướng request và tích hợp với **Keycloak** để xác thực (JWT).
 - **Backend Core (FastAPI)**:
+    - Điều hướng request và xác thực với JWT.
     - Xử lý nghiệp vụ chính (User, School, Education).
     - Tương tác với Database và Cache.
     - Gửi job xử lý nền vào Queue.
@@ -47,9 +46,8 @@ GreenEduMap được thiết kế theo kiến trúc **Microservices** hướng s
 - **PostgreSQL + PostGIS**: Lưu trữ dữ liệu quan hệ và không gian (GIS).
 - **MongoDB**: Lưu trữ dữ liệu ngữ nghĩa (Semantic Data) cho Orion-LD.
 
-
 ### 5. Notification & Realtime Layer
-- **Reverb**: Server WebSocket để đẩy thông báo realtime xuống Client (Web/App).
+- **WebSocket**: Đẩy thông báo realtime xuống Client (Web/App).
 - **Notify Service**: Module để gửi Email/SMS/Push Notification.
 
 ## Kiến trúc Microservices
@@ -59,15 +57,15 @@ Hệ thống bao gồm các thành phần chính:
 - **FastAPI Core**: Service chính quản lý logic nghiệp vụ.
 - **AI Service (Python)**: Service chuyên biệt cho AI/ML.
 - **FiWARE Orion-LD**: Service quản lý Context & IoT.
-- **Auth Service (Keycloak)**: Quản lý định danh tập trung.
+- **Auth Service (JWT)**: Xác thực người dùng.
 
 ## Quy trình hoạt động chính
 
-1.  **Client (App/Web)** gọi API qua **Traefik** -> **FastAPI Core**.
+1.  **Client (App/Web)** gọi API đến **FastAPI Core**.
 2.  **FastAPI Core** xử lý logic, lưu DB, và bắn sự kiện sang **RabbitMQ** (nếu cần).
 3.  **IoT Device** gửi data -> **MQTT** -> **RabbitMQ** -> **FastAPI/FiWARE** tiêu thụ.
 4.  **FiWARE Orion-LD** cập nhật trạng thái thực thể (Entity) vào **MongoDB**.
 5.  **AI Service** lắng nghe **RabbitMQ**, phân tích và cập nhật lại kết quả.
-6.  **Reverb** nhận sự kiện từ **FastAPI/RabbitMQ** và đẩy xuống Client.
+6.  **WebSocket** nhận sự kiện từ **FastAPI/RabbitMQ** và đẩy xuống Client.
 
 Xem chi tiết hướng dẫn cài đặt tại [Installation.md](./Installation.md).

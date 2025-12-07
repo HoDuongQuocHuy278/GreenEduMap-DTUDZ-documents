@@ -59,7 +59,6 @@ OPENWEATHER_API_KEY=your_openweather_key
 SENTINEL_API_KEY=your_sentinel_key
 
 # Authentication
-KEYCLOAK_URL=http://localhost:8080
 JWT_SECRET=your_jwt_secret
 
 # Frontend
@@ -85,8 +84,6 @@ Hệ thống sẽ tự động khởi động các thành phần:
 - **Database**: PostgreSQL + PostGIS
 - **Message Broker**: RabbitMQ
 - **AI Services**: Python Services
-- **Gateway**: Traefik
-- **Auth**: Keycloak
 - **Semantic**: FiWARE Orion-LD & MongoDB
 
 ---

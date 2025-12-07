@@ -66,7 +66,7 @@ Hệ thống được thiết kế theo kiến trúc Microservices, đảm bảo
 - **Backend**: Python, FastAPI (Python cho AI)
 - **Database**: PostgreSQL + PostGIS, MongoDB, Redis
 - **Semantic**: FiWARE Orion-LD cho NGSI-LD
-- **Infrastructure**: Docker, Kubernetes, Traefik
+- **Infrastructure**: Docker, Kubernetes
 
 Xem chi tiết tại [Kiến trúc hệ thống](Architecture.md).
 
