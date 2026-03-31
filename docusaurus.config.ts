@@ -3,9 +3,9 @@ import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'Hapas - Túi xách thời trang',
-  tagline: 'Thương hiệu túi xách cao cấp, sang trọng và hiện đại',
-  favicon: 'img/hapas-logo.png',
+  title: 'GreenEduMap',
+  tagline: 'Nền tảng phản ánh, cảnh báo & giám sát đô thị thông minh',
+  favicon: 'logo.png',
   url: 'https://hoduongquochuy278.github.io',
   baseUrl: '/GreenEduMap-DTUDZ-documents/',
   organizationName: 'HoDuongQuocHuy278',
@@ -24,7 +24,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          routeBasePath: '/docs', // Moved docs to /docs to free up root for custom pages
+          routeBasePath: '/',
           editUrl: 'https://github.com/HoDuongQuocHuy278/GreenEduMap-DTUDZ-documents/edit/main/',
         },
         theme: {
@@ -35,20 +35,25 @@ const config: Config = {
   ],
 
   themeConfig: {
-    metadata: [{ name: 'keywords', content: 'túi xách, hapas, thời trang, cao cấp, luxury bags' }],
-    image: 'img/hero-bg.jpg',
+    metadata: [{ name: 'keywords', content: 'smart city, urban monitoring, AI, IoT, city management' }],
+    image: 'img/Banner.png',
     navbar: {
-      title: 'Hapas',
+      title: 'GreenEduMap',
       logo: {
-        alt: 'Hapas Logo',
-        src: 'img/hapas-logo.png',
+        alt: 'GreenEduMap Logo',
+        src: '/logo.png',
       },
       items: [
-        { to: '/', label: 'Trang chủ', position: 'left' },
-        { to: '/category', label: 'Danh mục sản phẩm', position: 'left' },
-        { to: '/manufacturer', label: 'Thông tin nhà sản xuất', position: 'left' },
-        { to: '/products', label: 'Sản phẩm chi tiết', position: 'left' },
-        { to: '/contact', label: 'Liên hệ', position: 'left' },
+        {
+          type: 'docSidebar',
+          sidebarId: 'tutorialSidebar',
+          position: 'left',
+          label: 'Documentation',
+        },
+        {
+          type: 'localeDropdown',
+          position: 'right',
+        },
         {
           href: 'https://github.com/HoDuongQuocHuy278/GreenEduMap-DTUDZ-documents',
           position: 'right',
@@ -61,27 +66,58 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Hapas',
+          title: 'Docs',
           items: [
-            { label: 'Trang chủ', to: '/' },
-            { label: 'Sản phẩm', to: '/products' },
+            {
+              label: 'Getting Started',
+              to: '/intro',
+            },
+            {
+              label: 'Architecture',
+              to: '/Architecture',
+            },
+            {
+              label: 'Services',
+              to: '/Services',
+            },
+            {
+              label: 'Installation',
+              to: '/Installation',
+            },
           ],
         },
         {
-          title: 'Kết nối',
+          title: 'Community',
           items: [
-            { label: 'GitHub', href: 'https://github.com/HoDuongQuocHuy278/GreenEduMap-DTUDZ-documents' },
+            {
+              label: 'GitHub',
+              href: 'https://github.com/HoDuongQuocHuy278/GreenEduMap-DTUDZ-documents',
+            },
+            {
+              label: 'Issues',
+              href: 'https://github.com/HoDuongQuocHuy278/GreenEduMap-DTUDZ-documents/issues',
+            },
           ],
         },
         {
-          title: 'Liên hệ',
+          title: 'Team',
           items: [
-            { label: 'Email', href: 'mailto:info@hapas.vn' },
-            { label: 'Hotline', href: 'tel:0123456789' },
+            {
+              label: 'Lê Tuấn Minh',
+              href: 'mailto:llttminh@gmail.com',
+            },
+            {
+              label: 'Hồ Dương Quốc Huy',
+              href: 'mailto:huyho2782005@gmail.com',
+            },
+            {
+              label: 'Trần Xuân Trường',
+              href: 'mailto:xuantruong081205@gmail.com',
+            },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Hapas. Built with ❤️ for Elegant Style.`,
+      copyright: `Copyright © ${new Date().getFullYear()} GreenEduMap. Built with ❤️ by DTU-DZ-02 Team.`,
     },
     prism: {
       theme: prismThemes.github,

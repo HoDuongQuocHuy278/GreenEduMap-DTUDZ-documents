@@ -1,244 +1,100 @@
 /**
- * Hapas Premium Theme
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-first websites.
  */
+
+/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #d4af37; /* Metallic Gold */
-  --ifm-color-primary-dark: #b8860b;
-  --ifm-color-primary-darker: #9a6e00;
-  --ifm-color-primary-darkest: #7d5a00;
-  --ifm-color-primary-light: #e6c35c;
-  --ifm-color-primary-lighter: #f0d88d;
-  --ifm-color-primary-lightest: #faf0d1;
-  --ifm-background-color: #ffffff;
-  --ifm-navbar-background-color: #000000;
-  --ifm-navbar-link-color: #ffffff;
-  --ifm-navbar-link-hover-color: var(--ifm-color-primary);
-  --ifm-footer-background-color: #1a1a1a;
-  
-  --hapas-gold: #d4af37;
-  --hapas-black: #111111;
-  --hapas-white: #ffffff;
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
+/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #d4af37;
-  --ifm-background-color: #121212;
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+/* Custom styles */
 .navbar {
-  font-family: 'Inter', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .navbar__brand {
   font-weight: 700;
-  color: var(--ifm-color-primary) !important;
 }
 
-/* Home Page Specific */
-.hero-container {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--hapas-black);
+.navbar__logo {
+  height: 2.5rem;
+  margin-right: 0.5rem;
 }
 
-.hero-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.6;
-  transition: transform 1.5s ease-out;
-}
-
-.hero-container:hover .hero-image {
-  transform: scale(1.05);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  color: var(--hapas-white);
-  padding: 2rem;
-}
-
-.hero-title {
-  font-size: 5rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  background: linear-gradient(to right, #d4af37, #f0d88d, #d4af37);
+.navbar__title {
+  font-size: 1.5rem;
+  background: linear-gradient(45deg, #2e8555, #25c2a0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: float 3s ease-in-out infinite;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+.header-gitlab-link:hover {
+  opacity: 0.6;
 }
 
-/* Product Cards */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
-}
-
-.product-card {
-  background: white;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-.product-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
-  border-color: var(--ifm-color-primary);
-}
-
-.product-image {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-}
-
-.product-info {
-  padding: 1.5rem;
-  text-align: center;
-}
-
-.product-name {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #111;
-}
-
-.product-price {
-  color: var(--ifm-color-primary);
-  font-weight: bold;
-  font-size: 1.25rem;
-}
-
-/* Contact Page Effects */
-.contact-container {
-  min-height: 100vh;
-  position: relative;
+.header-gitlab-link::before {
+  content: '';
+  width: 24px;
+  height: 24px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background: #000;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='white' d='M21.94 13.11l-1.05-3.22c0-.03-.01-.06-.02-.09l-2.11-6.48a.859.859 0 0 0-.8-.57c-.36 0-.68.25-.79.58l-2 6.17H8.84L6.83 3.33a.851.851 0 0 0-.79-.58c-.37 0-.69.25-.8.58L3.13 9.82v.01l-1.05 3.22c-.19.58.01 1.22.52 1.58l9.89 7.19c.17.12.39.12.56 0l9.89-7.19c.51-.37.71-1 .52-1.58z'/%3E%3C/svg%3E")
+    no-repeat;
 }
 
-.contact-bg-img {
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
-   opacity: 0.4;
-   z-index: 0;
+[data-theme='light'] .header-gitlab-link::before {
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M21.94 13.11l-1.05-3.22c0-.03-.01-.06-.02-.09l-2.11-6.48a.859.859 0 0 0-.8-.57c-.36 0-.68.25-.79.58l-2 6.17H8.84L6.83 3.33a.851.851 0 0 0-.79-.58c-.37 0-.69.25-.8.58L3.13 9.82v.01l-1.05 3.22c-.19.58.01 1.22.52 1.58l9.89 7.19c.17.12.39.12.56 0l9.89-7.19c.51-.37.71-1 .52-1.58z'/%3E%3C/svg%3E")
+    no-repeat;
 }
 
-#bg-particles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
+.navbar-sidebar__brand {
+  box-shadow: none;
 }
 
-.contact-card {
-  position: relative;
-  z-index: 2;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(15px);
-  padding: 4rem;
-  border-radius: 20px;
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  color: white;
-  max-width: 600px;
-  width: 90%;
-  text-align: center;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+.dropdown__link {
+  font-size: 0.9rem;
 }
 
-.contact-card h2 {
-  color: var(--hapas-gold);
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
+.dropdown__link--active {
+  font-weight: 600;
 }
 
-.manufacturer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 2rem;
-  padding: 4rem;
+.footer {
+  --ifm-footer-background-color: #242526;
 }
 
-.m-item {
-  position: relative;
-  overflow: hidden;
-  border-radius: 15px;
-  aspect-ratio: 1;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
+.footer__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
 
-.m-item:hover {
-   border-color: var(--hapas-gold);
+.footer__item {
+  font-size: 0.9rem;
 }
 
-.m-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.m-item:hover img {
-  transform: scale(1.1);
-}
-
-/* Utils */
-.btn-premium {
-  display: inline-block;
-  padding: 0.75rem 2rem;
-  background: var(--hapas-gold);
-  color: black;
-  text-transform: uppercase;
-  font-weight: bold;
-  letter-spacing: 1px;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  margin-top: 1rem;
-}
-
-.btn-premium:hover {
-  background: white;
-  color: var(--hapas-gold);
-  text-decoration: none;
-  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+.footer__copyright {
+  font-size: 0.9rem;
+  color: var(--ifm-color-primary-lighter);
 }
