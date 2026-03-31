@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkgreenedumap_docs=self.webpackChunkgreenedumap_docs||[]).push([[254],{1966:e=>{e.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"default"}')}}]);
