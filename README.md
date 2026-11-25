@@ -10,7 +10,7 @@
 
 <div align="center">
 
-[![DEMO](https://img.shields.io/badge/🚀_DEMO-GREENEDUMAP-green?style=for-the-badge&logo=rocket&logoColor=white&labelColor=4a5568&color=22c55e)](https://github.com/MNM-DTU-DZ2/GreenEduMap-DTUDZ) [![DOCS](https://img.shields.io/badge/📚_DOCS-GREENEDUMAP-blue?style=for-the-badge&logo=book&logoColor=white&labelColor=4a5568&color=3b82f6)](docs/index.md)
+[![WEBSITE](https://img.shields.io/badge/🌐_WEBSITE-GREENEDUMAP-green?style=for-the-badge&logo=google-chrome&logoColor=white&labelColor=4a5568&color=22c55e)](https://greenedumap.io.vn) [![DOCS](https://img.shields.io/badge/📚_DOCS-GREENEDUMAP-blue?style=for-the-badge&logo=book&logoColor=white&labelColor=4a5568&color=3b82f6)](https://hoduongquochuy278.github.io/GreenEduMap-DTUDZ-documents/intro/)
 
 </div>
 
@@ -20,7 +20,7 @@
 
 ## 📖 Tổng Quan
 
-**GreenEduMap** là một dự án mã nguồn mở do đội **DTU-DZ_2** đến từ **Đại học Duy Tân** phát triển để tham gia cuộc thi **Olympic Tin học Sinh viên – Khối Mã nguồn mở 2025**. Dự án thuộc lĩnh vực đô thị thông minh xanh, với mục tiêu :
+**GreenEduMap** là nền tảng mã nguồn mở (**Bản đồ dữ liệu mở và AI cảnh báo môi trường theo vị trí cho Smart Campus và đô thị thích ứng**) do đội **DTU-DZ_2** đến từ **Đại học Duy Tân** phát triển để tham gia cuộc thi **Smart City 2026 • ISSCEI 2026** (nhóm lĩnh vực *Giám sát thông minh – Smart monitoring*), với mục tiêu:
 
 🤝 **Kết nối người dân – trường học – chính quyền** bằng bản đồ tri thức.
 🔍 **Minh bạch hóa dữ liệu đô thị** theo từng khu vực để cộng đồng dễ tiếp cận.
@@ -35,11 +35,11 @@ Dự án tập trung hình thành một nền tảng toàn diện kết hợp AI
 
 ![Banner](assets/images/doi_tuong_chinh.jpg)
 
-1. **Người dân** → xem chất lượng sống và nhận gợi ý hành động xanh, cung cấp thông tin môi trường .
-2. **Chính quyền** → ra quyết định dựa trên dữ liệu, sử dụng dữ liệu để quản lý đô thị hiệu quả.
-3. **Trường học** → triển khai giáo dục xanh (Green Skills), tích hợp dữ liệu vào giáo dục môi trường.
-4. **Tổ chức môi trường** → sử dụng dữ liệu cho và giám sát, xây dựng chiến dịch truyền thông dựa trên dữ liệu thật.
-5. **Nhà nghiên cứu** → truy cập dữ liệu mở chuẩn hóa để nghiên cứu và đổi mới, xây dựng mô hình AI/ML.
+1. **Người dân & Sinh viên** → xem chất lượng sống, nhận cảnh báo ô nhiễm, nắng nóng, mưa ngập theo khu vực/tuyến đi và nhận gợi ý hành động xanh, gửi phản ánh hiện trường kèm ảnh GPS.
+2. **Chính quyền** → ra quyết định dựa trên dữ liệu, theo dõi hàng đợi xác minh phản ánh và rủi ro theo địa bàn để quản lý đô thị hiệu quả.
+3. **Trường học** → triển khai giáo dục xanh (Green Skills), điều chỉnh lịch hoạt động ngoài trời và tích hợp dữ liệu vào giáo dục môi trường.
+4. **Tổ chức môi trường & Doanh nghiệp** → sử dụng dữ liệu để giám sát, xây dựng chiến dịch truyền thông và đầu tư xanh dựa trên dữ liệu thật.
+5. **Nhà nghiên cứu** → truy cập dữ liệu mở chuẩn hóa (NGSI-LD, CSV/GeoJSON) để nghiên cứu và đổi mới, xây dựng mô hình AI/ML.
 ---
 
 ## ✨ Modules chính của GreenEduMap
@@ -94,15 +94,14 @@ Dự án tập trung hình thành một nền tảng toàn diện kết hợp AI
 
 | Thành phần         | Công nghệ sử dụng                                       |
 | ------------------ | ------------------------------------------------------- |
+| **Web App**        | Next.js 14                                              |
 | **Mobile App**     | React Native (iOS & Android)                            |
-| **Web**  | Next.js 15                                              |
-| **Backend Core**   | Laravel (PHP), Redis (Cache)                            |
-| **AI Services**    | FastAPI (Python) cho NLP, Computer Vision, scikit-learn |
-| **API Gateway**    | Traefik, Keycloak (Auth)                                |
-| **Message Broker** | Apache Kafka, MQTT (EMQX/Mosquitto)                     |
-| **Realtime**       | Reverb (WebSocket)                                      |
-| **Database**       | PostgreSQL + PostGIS (GeoData), OpenSearch              |
-| **Semantic**       | FiWARE Orion-LD, MongoDB                                |
+| **Backend Core**   | FastAPI (Python), Redis (Cache), JWT                    |
+| **AI/ML Service**  | Python 3.11, scikit-learn, pandas, aio-pika             |
+| **Message Broker** | RabbitMQ, MQTT (EMQX)                                   |
+| **Database**       | PostgreSQL + PostGIS, MongoDB                           |
+| **Semantic Layer** | FiWARE Orion-LD (NGSI-LD)                               |
+| **Real-time**      | WebSocket                                               |
 
 ---
 
@@ -185,8 +184,7 @@ Dự án này tuân theo bộ quy tắc ứng xử cho cộng đồng. Xem file 
 
 ### Yêu cầu hệ thống
 - **Node.js** 18+ (Next.js web)
-- **Python** 3.9+ (FastAPI services)
-- **PHP** 8.2+ (Laravel backend)
+- **Python** 3.11+ (FastAPI services)
 - **PostgreSQL** 14+ + PostGIS extension
 - **Docker & Docker Compose** (for containerized deployment)
 - **Redis** 7+
@@ -275,7 +273,7 @@ npm run test
 
 ## 🤝 Đóng Góp Cho Dự Án
 
-Dự án này là mã nguồn mở, được phát triển bởi đội **DTU-DZ_2** đến từ **Đại học Duy Tân** để tham gia cuộc thi **Olympic Tin học Sinh viên – Khối Mã nguồn mở năm 2025** nên rất hoan nghênh cộng đồng tham gia đóng góp!
+Dự án này là mã nguồn mở, được phát triển bởi đội **DTU-DZ_2** đến từ **Đại học Duy Tân** để tham gia cuộc thi **Smart City 2026 • ISSCEI 2026** nên rất hoan nghênh cộng đồng tham gia đóng góp!
 
 ### 🌱 Quy Trình Đóng Góp
 
@@ -334,15 +332,15 @@ Xem thêm hướng dẫn đóng góp tại [CONTRIBUTING.md](CONTRIBUTING.md)
 
 | 👨‍🏫 Vai Trò | 📧 Thông Tin |
 | ----------- | ------------ |
-| **Giảng Viên** | **Nguyễn Quốc Long**<br>Email: quoclongdng@gmail.com |
+| **Giảng Viên Hướng Dẫn** | **Th.S Trần Kim Sanh**<br>Email: trankimsanh@dtu.edu.vn |
 
 ### 📞 Liên hệ Team DTU-DZ2
 
 Nếu cần trao đổi gì thêm, vui lòng liên hệ:
 
-- **Trần Xuân Trường**: xuantruong081205@gmail.com
+- **Trần Xuân Trường** *(Trưởng nhóm)*: xuantruong081205@gmail.com
 - **Hồ Dương Quốc Huy**: huyho2782005@gmail.com
-- **Lê Tuấn Minh**: llttminh@gmail.com
+- **Võ Thị Thái Ngọc**: vothithaingoc207@gmail.com
 
 ---
 
@@ -352,5 +350,5 @@ Dự án này được phân phối dưới [GNU General Public License v3.0](LI
 
 ---
 
-© 2025 **GreenEduMap** - Dữ liệu mở dẫn lối đô thị xanh 🌱  
+© 2026 **GreenEduMap** - Dữ liệu mở dẫn lối đô thị xanh 🌱
 
