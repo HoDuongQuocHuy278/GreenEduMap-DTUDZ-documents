@@ -62,7 +62,7 @@ Tích hợp dữ liệu từ OpenAQ (chất lượng không khí) và OpenWeathe
 ### 🌐 [OpenData Service](./OpenDataService/Readme.md)
 **Port:** 8009 | **Tech:** Python + FastAPI | **DB:** PostgreSQL (read-only)
 
-Cung cấp dữ liệu mở theo chuẩn NGSI-LD, DCAT-AP với nhiều định dạng xuất: CSV, GeoJSON, RDF. Sẵn sàng cho OLP 2025.
+Cung cấp dữ liệu mở theo chuẩn NGSI-LD, DCAT-AP với nhiều định dạng xuất: CSV, GeoJSON, RDF phục vụ chia sẻ dữ liệu mở Smart City.
 
 ---
 

@@ -4,7 +4,7 @@
 
 ## 🎯 Mục tiêu dự án
 
-**GreenEduMap** là một dự án mã nguồn mở do đội **DTU-DZ_2** đến từ **Đại học Duy Tân** phát triển để tham gia cuộc thi **Olympic Tin học Sinh viên – Khối Mã nguồn mở 2025**. Dự án thuộc lĩnh vực đô thị thông minh xanh, với mục tiêu:
+**GreenEduMap** là một dự án mã nguồn mở do đội **DTU-DZ_2** đến từ **Đại học Duy Tân** phát triển để tham gia cuộc thi **Smart City 2026 • ISSCEI 2026** (nhóm lĩnh vực *Giám sát thông minh – Smart monitoring*), hướng tới Smart Campus và đô thị thích ứng, với mục tiêu:
 
 🤝 **Kết nối người dân – trường học – chính quyền** bằng bản đồ tri thức.
 
@@ -18,33 +18,33 @@ Dự án tập trung hình thành một nền tảng toàn diện kết hợp AI
 
 ## ✨ Modules chính
 
-### 1. 📱 Module tương tác người dân
+### 1. 📱 Module tương tác người dân & sinh viên
 
-🌍 Xem dữ liệu môi trường realtime (chất lượng không khí, nhiệt độ, cảnh báo ô nhiễm)
+🌍 Xem dữ liệu môi trường realtime (chất lượng không khí PM2.5/AQI, nhiệt độ, mưa – ngập, giao thông)
 
-🏫 Tìm kiếm trường học xanh và khóa học bền vững (Green Skills)
+🏫 Tìm kiếm trường học xanh, điểm tài nguyên xanh và khóa học bền vững (Green Skills)
 
-📊 Theo dõi chất lượng sống theo từng khu vực
+📍 Gửi phản ánh cộng đồng 4 trạng thái (`đã gửi – tiếp nhận – đang xác minh – đã xử lý`) kèm ảnh GPS, chống trùng, xóa EXIF và che thông tin cá nhân
 
-💡 Nhận gợi ý hành động xanh từ AI GreenBot
+💡 Nhận cảnh báo theo vị trí (kèm nguồn, thời điểm, mức tin cậy) và gợi ý hành động xanh từ AI GreenBot
 
 ### 2. 🤖 Module phân tích AI & Dữ liệu
 
-🧠 **AI GreenBot**: Phân tích tương quan môi trường ↔ giáo dục, phát hiện mẫu bất thường
+🧠 **AI GreenBot**: Diễn giải chỉ số môi trường bằng ngôn ngữ phổ thông, phân tích tương quan đa lớp
 
-📈 Clustering khu vực (Xanh – Vàng – Đỏ) dựa trên chỉ số môi trường
+📈 Clustering khu vực (Xanh – Vàng – Đỏ) bằng K-Means dựa trên chỉ số môi trường
 
-🔮 Dự báo xu hướng ô nhiễm và biến động mảng xanh
+🔮 Dự báo xu hướng ô nhiễm, điểm nóng nhiệt và biến động mảng xanh
 
-⭐ Đánh giá và gợi ý hành động xanh tự động cho từng khu vực
+⭐ Minh bạch độ tin cậy: tách bạch dữ liệu đo thực tế, dữ liệu dự báo và phản ánh chưa xác minh
 
-### 3. 🗺️ Module quản lý dữ liệu môi trường & giáo dục
+### 3. 🗺️ Module quản lý dữ liệu môi trường, giáo dục & WEFE
 
-🌡️ Thu thập và quản lý dữ liệu môi trường (OpenAQ, OpenWeather, Sentinel)
+🌡️ Thu thập và quản lý 6 lớp dữ liệu không gian: không khí (OpenAQ/IoT), thời tiết – mưa (OpenWeather), điểm ngập, giao thông (OSM), cây xanh – tái chế – rác hữu cơ, trường học & cộng đồng
 
-🏫 Quản lý trường học, khóa học xanh và tính toán Green Score
+🏫 Quản lý trường học, khóa học xanh, điểm thu gom rác hữu cơ/vườn trường và tính toán Green Score
 
-🗺️ Bản đồ 3D realtime hiển thị dữ liệu môi trường – giáo dục theo từng phường/xã
+🗺️ Bản đồ 2D/3D realtime hiển thị dữ liệu môi trường – giáo dục – chuỗi liên kết **WEFE** (Nước – Năng lượng – Thực phẩm – Hệ sinh thái)
 
 📊 Dashboard trực quan cho chính quyền và trường học
 
@@ -74,15 +74,16 @@ Xem chi tiết tại [Kiến trúc hệ thống](Architecture.md).
 
 GreenEduMap tuân thủ chuẩn **NGSI-LD** (ETSI GS CIM 009) để chia sẻ dữ liệu đô thị xanh theo hướng Linked Open Data.
 
-Xem chi tiết tại [NGSI-LD Guide](api/ngsi-ld.md).
+Xem chi tiết tại [OpenData Service](Services/OpenDataService/Readme.md).
 
-## 👥 Team Members
+## 👥 Team Members & Giảng viên hướng dẫn
 
-| Role      | Name                     | Email                                                                 |
+| Role | Name | Email |
 | --------- | ------------------------ | --------------------------------------------------------------------- |
-| Developer | **Lê Tuấn Minh**      | [llttminh@gmail.com](mailto:llttminh@gmail.com) |
-| Developer | **Hồ Dương Quốc Huy**      | [huyho2782005@gmail.com](mailto:huyho2782005@gmail.com)             |
-| Developer | **Trần Xuân Trường** | [xuantruong081205@gmail.com](mailto:xuantruong081205@gmail.com)                         |
+| Advisor | **Th.S Trần Kim Sanh** | [trankimsanh@dtu.edu.vn](mailto:trankimsanh@dtu.edu.vn) |
+| Leader / Developer | **Trần Xuân Trường** | [xuantruong081205@gmail.com](mailto:xuantruong081205@gmail.com) |
+| Developer | **Hồ Dương Quốc Huy** | [huyho2782005@gmail.com](mailto:huyho2782005@gmail.com) |
+| Developer | **Võ Thị Thái Ngọc** | [vothithaingoc207@gmail.com](mailto:vothithaingoc207@gmail.com) |
 
 ## 🤝 Đóng góp
 
@@ -105,4 +106,4 @@ git push origin feat/my-feature
 
 Dự án này được phân phối dưới [GNU General Public License v3.0](https://github.com/HoDuongQuocHuy278/GreenEduMap-DTUDZ-documents/blob/main/LICENSE). Xem file `LICENSE` để biết thêm chi tiết.
 
-© 2025 GreenEduMap – Được phát triển với ❤️ bởi Nhóm DTU-DZ_2
+© 2026 GreenEduMap – Được phát triển với ❤️ bởi Nhóm DTU-DZ_2

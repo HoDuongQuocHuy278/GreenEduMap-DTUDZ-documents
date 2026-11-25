@@ -24,7 +24,7 @@ GreenEduMap ra đời để giải quyết những vấn đề đó, hướng t�
 
 ![Đối tượng chính](../static/img/doi_tuong_chinh.jpg)
 
-1. **Người dân:** Xem chất lượng sống và nhận gợi ý hành động xanh, cung cấp thông tin môi trường cho lối sống xanh.
+1. **Người dân & Sinh viên:** Xem chất lượng sống, nhận cảnh báo ô nhiễm, nắng nóng, mưa ngập theo khu vực/tuyến đi và nhận gợi ý hành động xanh, gửi phản ánh hiện trường kèm ảnh GPS.
 2. **Chính quyền:** Ra quyết định dựa trên dữ liệu, sử dụng dữ liệu để quản lý đô thị hiệu quả.
 3. **Trường học:** Triển khai giáo dục xanh (Green Skills), tích hợp dữ liệu vào giáo dục môi trường.
 4. **Tổ chức môi trường:** Sử dụng dữ liệu cho vận động và giám sát, xây dựng chiến dịch truyền thông dựa trên dữ liệu thật.
@@ -97,14 +97,18 @@ Dự án hướng tới xây dựng hệ sinh thái đô thị xanh thông minh,
 
 Dự án này được phân phối dưới [GNU General Public License v3.0](../LICENSE). Xem file `LICENSE` để biết thêm chi tiết.
 
+## 👨‍🏫 Giảng viên hướng dẫn
+
+- **Th.S Trần Kim Sanh**: trankimsanh@dtu.edu.vn
+
 ## 📞 Liên hệ Team DTU-DZ2
 
 Nếu cần trao đổi gì thêm, vui lòng liên hệ:
 
-- **Trần Xuân Trường**: xuantruong081205@gmail.com
+- **Trần Xuân Trường** *(Trưởng nhóm)*: xuantruong081205@gmail.com
 - **Hồ Dương Quốc Huy**: huyho2782005@gmail.com
-- **Lê Tuấn Minh**: llttminh@gmail.com
+- **Võ Thị Thái Ngọc**: vothithaingoc207@gmail.com
 
 ---
 
-© 2025 **GreenEduMap** – Code with ❤️ by DTU-DZ_2 Team
+© 2026 **GreenEduMap** – Code with ❤️ by DTU-DZ_2 Team
