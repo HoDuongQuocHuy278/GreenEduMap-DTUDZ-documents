@@ -103,16 +103,16 @@ const config: Config = {
           title: 'Team',
           items: [
             {
-              label: 'Lê Tuấn Minh',
-              href: 'mailto:llttminh@gmail.com',
+              label: 'Trần Xuân Trường',
+              href: 'mailto:xuantruong081205@gmail.com',
             },
             {
               label: 'Hồ Dương Quốc Huy',
               href: 'mailto:huyho2782005@gmail.com',
             },
             {
-              label: 'Trần Xuân Trường',
-              href: 'mailto:xuantruong081205@gmail.com',
+              label: 'Võ Thị Thái Ngọc',
+              href: 'mailto:vothithaingoc207@gmail.com',
             },
           ],
         },

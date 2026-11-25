@@ -25,7 +25,7 @@
 
 ```bash
 # Clone dự án
-git clone https://github.com/HoDuongQuocHuy278/GreenEduMap-DTUDZ.git
+git clone https://github.com/MNM-DTU-DZ2/GreenEduMap-DTUDZ.git
 cd GreenEduMap-DTUDZ
 ```
 
@@ -33,49 +33,44 @@ cd GreenEduMap-DTUDZ
 
 ```bash
 # Copy file môi trường mẫu
-cp .env.example .env
+cp infrastructure/docker/.env.example infrastructure/docker/.env
 
 # Chỉnh sửa file .env với thông tin của bạn
-nano .env
+nano infrastructure/docker/.env
 ```
 
 **Các biến môi trường quan trọng:**
 
 ```env
 # Database
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=greenedumap
-DB_USER=postgres
-DB_PASSWORD=your_password
+POSTGRES_DB=greenedumap
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=your_password
 
-# Redis
-REDIS_HOST=localhost
-REDIS_PORT=6379
+# Ports
+API_GATEWAY_PORT=4500
+WEB_APP_PORT=4501
 
 # API Keys
 OPENAQ_API_KEY=your_openaq_key
 OPENWEATHER_API_KEY=your_openweather_key
-SENTINEL_API_KEY=your_sentinel_key
 
 # Authentication
-JWT_SECRET=your_jwt_secret
-
-# Frontend
-NEXT_PUBLIC_API_URL=http://localhost:3000
+JWT_SECRET_KEY=your_jwt_secret
 ```
 
 ### 3. Khởi động với Docker Compose
 
 ```bash
-# Build và khởi động tất cả services
-docker-compose up -d
+# Di chuyển vào thư mục docker và khởi động tất cả services
+cd infrastructure/docker
+docker compose up -d
 
 # Kiểm tra trạng thái
-docker-compose ps
+docker compose ps
 
 # Xem logs
-docker-compose logs -f
+docker compose logs -f
 ```
 
 Hệ thống sẽ tự động khởi động các thành phần:
@@ -202,12 +197,11 @@ docker-compose logs -f backend
 
 ---
 
-##  Tài liệu tham khảo
+## 📚 Tài liệu tham khảo
 
 - [Architecture](./Architecture.md) - Kiến trúc hệ thống
-- [API Documentation](./api/README.md) - Tài liệu API
-- [Contributing](../CONTRIBUTING.md) - Hướng dẫn đóng góp
-- [Troubleshooting](../TROUBLESHOOTING.md) - Xử lý sự cố
+- [Services Documentation](./Services/README.md) - Tài liệu các Services
+- [Getting Started](./GettingStarted.md) - Tổng quan dự án
 
 ---
 
@@ -215,11 +209,11 @@ docker-compose logs -f backend
 
 Nếu gặp vấn đề, vui lòng:
 
-1. Kiểm tra [TROUBLESHOOTING.md](../TROUBLESHOOTING.md)
-2. Tìm kiếm trong [GitHub Issues](https://github.com/HoDuongQuocHuy278/GreenEduMap-DTUDZ/issues)
+1. Kiểm tra mục **Xử lý sự cố** ở trên
+2. Tìm kiếm trong [GitHub Issues](https://github.com/MNM-DTU-DZ2/GreenEduMap-DTUDZ/issues)
 3. Tạo issue mới với đầy đủ thông tin lỗi
 4. Liên hệ team qua email
 
 ---
 
-© 2025 GreenEduMap – Developed with ❤️ by DTU-DZ_2 Team
+© 2026 GreenEduMap – Developed with ❤️ by DTU-DZ_2 Team

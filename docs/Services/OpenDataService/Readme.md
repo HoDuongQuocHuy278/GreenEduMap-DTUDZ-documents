@@ -57,7 +57,7 @@ Hỗ trợ các định dạng Turtle, N-Triples, JSON-LD và RDF/XML với voca
 
 ---
 
-## 🎓 Demo OLP 2025
+## 🎓 Demo & Tiêu chí Open Data
 
 OpenData Service thể hiện các tiêu chí:
 - ✅ **Interoperability** - Chuẩn quốc tế NGSI-LD và DCAT-AP
@@ -77,4 +77,4 @@ OpenData Service thể hiện các tiêu chí:
 
 ## 📄 License
 
-Dự án này được phân phối dưới [GNU General Public License v3.0](https://github.com/HoDuongQuocHuy278/GreenEduMap-DTUDZ/blob/main/LICENSE).
+Dự án này được phân phối dưới [GNU General Public License v3.0](https://github.com/MNM-DTU-DZ2/GreenEduMap-DTUDZ/blob/main/LICENSE).
